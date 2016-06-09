@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Undertale</title>
+		<style>
+			@font-face
+			{
+				font-family: "undertale";
+				src: url("assets/undertale.woff");
+			}
+			@font-face
+			{
+				font-family: "hpview";
+				src: url("assets/hpview.ttf");
+			}
+            body
+            {
+                background-color: #000;
+            }
+			canvas
+			{
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 20px;
+				margin-bottom: 20px;
+				background: #000;
+                border: 1px solid #FFF;
+			}
+			#images, #audio
+			{
+                display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Canvas -->
+		<canvas>
+			Get a real browser!
+		</canvas>
+		
+		<!-- Images -->
+		<div id="images">
+		</div>
+		
+		<!-- Audio -->
+		<div id="audio">
+		</div>
+		
+		<!-- Classes -->
+		<script src='js/class_vect.js'></script>
+		<script src='js/class_animation.js'></script>
+		<script src='js/class_gameobject.js'></script>
+		<script src='js/class_gameobject_basicsquare.js'></script>
+		<script src='js/class_scene.js'></script>
+		<script src='js/class_scene_0.js'></script>
+		
+		<!-- Tools -->
+		<script src='js/utilities.js'></script>
+		<script src='js/loader.js'></script>
+		<script src='js/keys.js'></script>
+		
+		<!-- Modules -->
+		<script src='js/module_sound.js'></script>
+        
+        <!-- Main -->
+		<script src='js/main.js'></script>
+	</body>
+</html>
