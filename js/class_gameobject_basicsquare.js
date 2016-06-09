@@ -1,4 +1,4 @@
-//Test cube object
+//Test square object
 var BasicSquare = function(pos)
 {
     GameObject.call(this, pos, null);

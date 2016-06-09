@@ -1,4 +1,4 @@
-//Test cube object
+//Test animated square object
 var AnimatedSquare = function(pos)
 {
     GameObject.call(this, pos, null);
