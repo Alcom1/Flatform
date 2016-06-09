@@ -1,0 +1,4 @@
+var collision = function()
+{
+
+}

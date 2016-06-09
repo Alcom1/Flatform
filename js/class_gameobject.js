@@ -24,3 +24,8 @@ GameObject.prototype.draw = function(ctx)
 	}	
 }
 
+//Game object collision
+GameObject.prototype.collisionResolve = function(ctx)
+{
+	
+}

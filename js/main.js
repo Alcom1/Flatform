@@ -70,7 +70,7 @@ game.main =
 	//Update logic
 	update : function(dt)
 	{
-		game.sound.update(dt);
+		game.managerSound.update(dt);
 		game.scene_0.update(dt);
 	},
 	
