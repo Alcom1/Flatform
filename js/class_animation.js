@@ -1,6 +1,12 @@
 //Animation constructor
-var Animation = function(anim)
+var Animation = function()
 {
+    var xhr = new XMLHttpRequest();
+    xhr.overrideMimeType("application/json");
+    xhr.open('GET', "assets/animation_sample.json", false);
+    xhr.send();
+    var anim = JSON.parse(xhr.responseText);
+    
     this.length = anim.length;          //Duration of animation in milliseconds
     this.rotate = anim.rotate;          //Rotation transformation keyframes array.
     this.scale = anim.scale;            //Scaling transformation keyframes array.

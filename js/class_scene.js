@@ -5,11 +5,11 @@ var Scene = function()
 }
 
 //Scene update
-Scene.prototype.update = function()
+Scene.prototype.update = function(dt)
 {
 	for(var i = 0; i < this.gameObjects.length; i++)
 	{
-		this.gameObjects[i].update();
+		this.gameObjects[i].update(dt);
 	}	
 }
 
