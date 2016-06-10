@@ -14,7 +14,7 @@ BasicRect.prototype.draw = function(ctx)
     GameObject.prototype.draw.call(this);
     
     ctx.save();
-        ctx.fillStyle="#FFF";
+        ctx.fillStyle="#0FF";
         ctx.fillRect(
             this.transform.pos.x,
             this.transform.pos.y,
