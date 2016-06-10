@@ -1,22 +1,24 @@
-//Test square object
-var BasicSquare = function(pos)
+//Test rect object
+var BasicRect = function(pos)
 {
-    GameObject.call(this, pos, null);
+    GameObject.call(this, null);
+    
+    this.transform.pos = pos;
 }
 
-BasicSquare.prototype = Object.create(GameObject.prototype);
+BasicRect.prototype = Object.create(GameObject.prototype);
 
 //Game object draw
-BasicSquare.prototype.draw = function(ctx)
+BasicRect.prototype.draw = function(ctx)
 {
     GameObject.prototype.draw.call(this);
     
     ctx.save();
-    ctx.fillStyle="#FFF";
-	ctx.fillRect(
-        this.pos.x,
-        this.pos.y,
-        40,
-        30);
+        ctx.fillStyle="#FFF";
+        ctx.fillRect(
+            this.transform.pos.x,
+            this.transform.pos.y,
+            40,
+            30);
     ctx.restore();
 }

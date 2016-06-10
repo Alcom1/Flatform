@@ -1,7 +1,7 @@
 var Transform = function(a, b, c, d, x, y)
 {
     this.mat2 = new Mat2(a, b, c, d);
-    this.trans = new Vect(x, y, 0);
+    this.pos = new Vect(x, y, 0);
 }
 
 Transform.prototype.setTransform = function(ctx)
@@ -11,24 +11,23 @@ Transform.prototype.setTransform = function(ctx)
         this.mat2.b,
         this.mat2.c,
         this.mat2.d,
-        this.trans.x,
-        this.trans.y);
+        this.pos.x,
+        this.pos.y);
 }
 
 Transform.prototype.scale = function(x, y)
 {
     var temp = this.mat2.scale(x, y);
-    this.trans = temp.getMultVect(this.trans);
+    this.pos = temp.getMultVect(this.pos);
 }
 
 Transform.prototype.rotate = function(angle)
 {
     var temp = this.mat2.rotate(angle);
-    this.trans = temp.getMultVect(this.trans);
-    this.trans.x *= -1;
+    this.pos = temp.getMultVect(this.pos);
 }
 
 Transform.prototype.translate = function(x, y)
 {
-    this.trans.add(new Vect(x, y, 0));
+    this.pos.add(new Vect(x, y, 0));
 }

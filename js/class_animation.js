@@ -11,7 +11,6 @@ var Animation = function()
     this.rotate = anim.rotate;          //Rotation transformation keyframes array.
     this.scale = anim.scale;            //Scaling transformation keyframes array.
     this.translate = anim.translate;    //Translation transformation keyframes array.
-    this.zindex = anim.zindex;          //z-index of the animation.
     this.time = 0;                      //Current time of the animation.
 }
 
@@ -28,11 +27,9 @@ Animation.prototype.transform = function(ctx)
     
     var transform = new Transform(1, 0, 0, 1, 0, 0);
     
-    this.transformPartial(transform, step, this.translate, 0);
     this.transformPartial(transform, step, this.scale, 1);
     this.transformPartial(transform, step, this.rotate, 2);
-    
-    transform.setTransform(ctx);
+    this.transformPartial(transform, step, this.translate, 0);
     
     return transform;
 }
@@ -55,7 +52,7 @@ Animation.prototype.transformPartial = function(
             {
                 case 0:
                     trans.translate(
-                       -map(
+                        map(
                             step, 
                             form[i].time, 
                             form[i + 1].time, 

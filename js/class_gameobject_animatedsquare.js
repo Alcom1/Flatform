@@ -1,14 +1,14 @@
-//Test animated square object
-var AnimatedSquare = function(pos)
+//Test animated rect object
+var AnimatedRect = function(pos)
 {
-    GameObject.call(this, pos, null);
+    GameObject.call(this, null);
     this.animation = new Animation();
 }
 
-AnimatedSquare.prototype = Object.create(GameObject.prototype);
+AnimatedRect.prototype = Object.create(GameObject.prototype);
 
 //Game object update
-AnimatedSquare.prototype.update = function(dt)
+AnimatedRect.prototype.update = function(dt)
 {
     GameObject.prototype.update.call(this);
     
@@ -16,30 +16,34 @@ AnimatedSquare.prototype.update = function(dt)
 }
 
 //Game object draw
-AnimatedSquare.prototype.draw = function(ctx)
+AnimatedRect.prototype.draw = function(ctx)
 {
     GameObject.prototype.draw.call(this);
     
-    ctx.save();
-    ctx.translate(this.pos.x, this.pos.y);
-    this.animation.transform(ctx);
+    this.transform = this.animation.transform(ctx); //Animation
     
-    ctx.fillStyle="#FFF";
-	ctx.fillRect(
-        0,
-        0,
-        40,
-        30);
+    //Rect
+    ctx.save();
+        this.transform.setTransform(ctx);
+        
+        //Draw rect
+        ctx.fillStyle="#FFF";
+        ctx.fillRect(
+            -20,
+            -15,
+            40,
+            30);
     ctx.restore();
-    
+        
+    //Dot
     ctx.save();
-    ctx.translate(this.pos.x, this.pos.y);
-    
-    ctx.fillStyle="#F00";
-	ctx.fillRect(
-        -4,
-        -4,
-        8,
-        8);
+        ctx.translate(this.transform.pos.x, this.transform.pos.y);
+        
+        ctx.fillStyle="#F00";
+        ctx.fillRect(
+            -4,
+            -4,
+            8,
+            8);
     ctx.restore();
 }

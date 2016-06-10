@@ -1,7 +1,7 @@
 //Base game object
-var GameObject = function(pos, parent)
+var GameObject = function(parent)
 {
-    this.pos = pos;
+	this.transform = new Transform(1, 0, 0, 1, 0, 0);
     this.parent = parent;
     this.children = [];
 }
