@@ -26,15 +26,20 @@ Animation.prototype.transform = function(ctx)
 {
     var step = (this.time * 1000) % this.length;    //Time in the current loop
     
-    //Partial transformations
-    this.transformPartial(ctx, step, this.rotate, 2);
-    this.transformPartial(ctx, step, this.scale, 1);
-    this.transformPartial(ctx, step, this.translate, 0);
+    var transform = new Transform(1, 0, 0, 1, 0, 0);
+    
+    this.transformPartial(transform, step, this.translate, 0);
+    this.transformPartial(transform, step, this.scale, 1);
+    this.transformPartial(transform, step, this.rotate, 2);
+    
+    transform.setTransform(ctx);
+    
+    return transform;
 }
 
 //Perform a partial transformation based on its type
 Animation.prototype.transformPartial = function(
-    ctx,  //Canvas
+    trans,
     step, //Time in the current loop
     form, //Which transform to use
     type) //Type of transform
@@ -49,8 +54,8 @@ Animation.prototype.transformPartial = function(
             switch(type)
             {
                 case 0:
-                    ctx.translate(
-                        map(
+                    trans.translate(
+                       -map(
                             step, 
                             form[i].time, 
                             form[i + 1].time, 
@@ -65,7 +70,7 @@ Animation.prototype.transformPartial = function(
                     break;
                     
                 case 1:
-                    ctx.scale(
+                    trans.scale(
                         map(
                             step, 
                             form[i].time, 
@@ -81,7 +86,7 @@ Animation.prototype.transformPartial = function(
                     break;
                     
                 case 2:
-                    ctx.rotate(
+                    trans.rotate(
                         map(
                             step, 
                             form[i].time, 

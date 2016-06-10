@@ -1,4 +1,4 @@
-var mat2 = function(a, b, c, d)
+var Mat2 = function(a, b, c, d)
 {
     this.a = a;
     this.b = b;
@@ -6,50 +6,53 @@ var mat2 = function(a, b, c, d)
     this.d = d;
 }
 
-mat2.prototype.mult = function(mat2)
+Mat2.prototype.mult = function(Mat2)
 {
-    var a = this.a * other.a + this.b * other.c;
-    var b = this.a * other.b + this.b * other.d;
-    var c = this.c * other.a + this.d * other.c;
-    var d = this.c * other.b + this.d * other.d;
+    var a = this.a * Mat2.a + this.b * Mat2.c;
+    var b = this.a * Mat2.b + this.b * Mat2.d;
+    var c = this.c * Mat2.a + this.d * Mat2.c;
+    var d = this.c * Mat2.b + this.d * Mat2.d;
     this.a = a;
     this.b = b;
     this.c = c;
     this.d = d;
 }
 
-mat2.prototype.getMult = function(mat2)
+Mat2.prototype.getMult = function(Mat2)
 {
-    return mat2(
-        this.a * other.a + this.b * other.c,
-        this.a * other.b + this.b * other.d,
-        this.c * other.a + this.d * other.c,
-        this.c * other.b + this.d * other.d);
+    return new Mat2(
+        this.a * Mat2.a + this.b * Mat2.c,
+        this.a * Mat2.b + this.b * Mat2.d,
+        this.c * Mat2.a + this.d * Mat2.c,
+        this.c * Mat2.b + this.d * Mat2.d);
 }
 
-mat2.prototype.getMultVect = function(vect)
+Mat2.prototype.getMultVect = function(vect)
 {
-    return vect(
+    return new Vect(
         this.a * vect.x + this.b * vect.y,
-        this.c * vect.x + this.d * vect.y);
+        this.c * vect.x + this.d * vect.y,
+        0);
 }
 
-mat2.prototype.scale = function(vect)
+Mat2.prototype.scale = function(x, y)
 {
-    var temp = mat2(
-        vect.x,
+    var temp = new Mat2(
+        x,
         0,
         0,
-        vect.y);
+        y);
     this.mult(temp);
+    return temp;
 }
 
-mat2.prototype.rotate = function(angle)
+Mat2.prototype.rotate = function(angle)
 {
-    var temp = mat2(
-        cos(angle),
-       -sin(angle),
-        sin(angle),
-        cos(angle));
+    var temp = new Mat2(
+        Math.cos(angle),
+       -Math.sin(angle),
+        Math.sin(angle),
+        Math.cos(angle));
     this.mult(temp);
+    return temp;
 }

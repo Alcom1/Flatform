@@ -31,4 +31,15 @@ AnimatedSquare.prototype.draw = function(ctx)
         40,
         30);
     ctx.restore();
+    
+    ctx.save();
+    ctx.translate(this.pos.x, this.pos.y);
+    
+    ctx.fillStyle="#F00";
+	ctx.fillRect(
+        -4,
+        -4,
+        8,
+        8);
+    ctx.restore();
 }
