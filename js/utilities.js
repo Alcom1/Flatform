@@ -26,10 +26,10 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r, d)
     if (h < 2 * r)
         r = h / 2;
     this.beginPath();
-    this.moveTo(x+r, y);
-    this.arcTo(x+w, y,   x+w, y+h, r);
-    this.arcTo(x+w, y+h, x,   y+h, r);
-    this.arcTo(x,   y+h, x,   y,   r);
+    this.moveTo(x + r, y);
+    this.arcTo(x + w, y,     x + w, y + h, r);
+    this.arcTo(x + w, y + h,     x, y + h, r);
+    this.arcTo(x,     y + h,     x, y,     r);
     this.lineTo(x, y + 10 + d);
     this.lineTo(x - 12, y + 5 + d);
     this.lineTo(x, y + d);
