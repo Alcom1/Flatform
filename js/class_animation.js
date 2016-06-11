@@ -27,9 +27,9 @@ Animation.prototype.transform = function(ctx)
     
     var transform = new Transform(1, 0, 0, 1, 0, 0);
     
-    this.transformPartial(transform, step, this.scale, 1);
-    this.transformPartial(transform, step, this.rotate, 2);
-    this.transformPartial(transform, step, this.translate, 0);
+    this.transformPartial(transform, step, this.scale, TYPE_ANIM.SCALE);
+    this.transformPartial(transform, step, this.rotate, TYPE_ANIM.ROTATE);
+    this.transformPartial(transform, step, this.translate, TYPE_ANIM.TRANSLATE);
     
     return transform;
 }
@@ -50,7 +50,7 @@ Animation.prototype.transformPartial = function(
             //Translation, scale, or rotation
             switch(type)
             {
-                case 0:
+                case TYPE_ANIM.TRANSLATE:
                     trans.translate(
                         map(
                             step, 
@@ -66,7 +66,7 @@ Animation.prototype.transformPartial = function(
                             form[i + 1].move[1]));
                     break;
                     
-                case 1:
+                case TYPE_ANIM.SCALE:
                     trans.scale(
                         map(
                             step, 
@@ -82,7 +82,7 @@ Animation.prototype.transformPartial = function(
                             form[i + 1].move[1]));
                     break;
                     
-                case 2:
+                case TYPE_ANIM.ROTATE:
                     trans.rotate(
                         map(
                             step, 

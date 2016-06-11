@@ -1,4 +1,4 @@
-//Global functions
+//Global functions and enumerations
 
 //constrained between min and max (inclusive)
 function clamp(val, min, max)
@@ -37,3 +37,15 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r, d)
     this.closePath();
     return this;
 }
+
+//Enums
+TYPE_ANIM = Object.freeze({
+    TRANSLATE: 0,
+    SCALE: 1,
+    ROTATE: 2});
+
+TYPE_COLL = Object.freeze({
+    POINT: 0,
+    RECT: 1,
+    CIRCLE: 2,
+    TRI: 3});

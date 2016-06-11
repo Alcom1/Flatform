@@ -23,6 +23,12 @@ game.managerCollision = (function()
 			}
 		}
 	}
+	
+	//
+	function add(collider)
+	{
+		colliders.push(collider);	
+	}
     
 	//Return
 	return {
