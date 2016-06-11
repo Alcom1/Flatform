@@ -39,11 +39,8 @@ AnimatedRect.prototype.draw = function(ctx)
     ctx.save();
         ctx.translate(this.transform.pos.x, this.transform.pos.y);
         
-        ctx.fillStyle="#F00";
-        ctx.fillRect(
-            -4,
-            -4,
-            8,
-            8);
+        ctx.strokeStyle="#FF0000";
+        ctx.lineWidth = 10;
+        ctx.point(0, 0);
     ctx.restore();
 }

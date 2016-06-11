@@ -38,6 +38,22 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r, d)
     return this;
 }
 
+//Canvas point
+CanvasRenderingContext2D.prototype.point = function (x, y)
+{
+    this.save();
+    this.fillStyle = this.strokeStyle;
+    this.beginPath();
+    this.arc(
+        x,
+        y,
+        this.lineWidth / 2,
+        0,
+        2 * Math.PI, true);
+    this.fill();
+    this.restore();
+}
+
 //Enums
 TYPE_ANIM = Object.freeze({
     TRANSLATE: 0,
