@@ -38,7 +38,20 @@ game.managerCollision = (function()
 	//
 	function collisionPointRect(point, rect)
 	{
-		return true;
+		var temp = rect.transform.mat2.getMultVect(
+			point.transform.pos.getSub(
+				rect.transform.pos));
+		
+		if(
+			Math.abs(temp.x) < rect.size.x &&
+			Math.abs(temp.y) < rect.size.y)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	//

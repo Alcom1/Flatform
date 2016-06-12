@@ -14,10 +14,10 @@ ColliderRect.prototype.draw = function(ctx)
         ctx.strokeStyle="#FFFF00";
         ctx.lineWidth = 5;
         ctx.strokeRect(
-            -this.size.x / 2,
-            -this.size.y / 2,
-            this.size.x,
-            this.size.y);
+            -this.size.x,
+            -this.size.y,
+            this.size.x * 2,
+            this.size.y * 2);
     ctx.restore();
 }
 
@@ -27,7 +27,7 @@ ColliderRect.prototype.checkCollision = function(other)
     switch(other.type)
     {
         case TYPE_COLL.POINT:
-            if(game.managerCollision.collisionPointRect(this, other))
+            if(game.managerCollision.collisionPointRect(other, this))
             {
                 this.parent.collide(other, new Vect(0, 0, 0));
                 other.parent.collide(this, new Vect(0, 0, 0));

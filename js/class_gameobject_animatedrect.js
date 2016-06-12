@@ -6,7 +6,7 @@ var AnimatedRect = function(pos)
     this.collider = new ColliderRect(
         this.transform,
         this,
-        new Vect(40, 30, 0));
+        new Vect(20, 15, 0));
     this.color = "#888";
 }
 
