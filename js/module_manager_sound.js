@@ -4,7 +4,6 @@ var game = game || {};
 //Module that plays and manages sounds.
 game.managerSound = (function()
 {
-	console.log("sound.js module loaded");
     var pauserSoft; //Soft pauser for repeating sounds.
 	
 	//Init

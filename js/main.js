@@ -72,6 +72,7 @@ game.main =
 	{
 		game.managerSound.update(dt);
 		game.scene_0.update(dt);
+		game.managerCollision.update();
 	},
 	
 	//Draw the main scene

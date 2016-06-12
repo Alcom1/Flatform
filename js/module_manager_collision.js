@@ -30,9 +30,17 @@ game.managerCollision = (function()
 		colliders.push(collider);	
 	}
     
+	//
+	function clear()
+	{
+		colliders = [];
+	}
+	
 	//Return
 	return {
 		init : init,
-		update: update
+		update : update,
+		add : add,
+		clear : clear
 	}
 }());

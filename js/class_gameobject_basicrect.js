@@ -4,6 +4,9 @@ var BasicRect = function(pos)
     GameObject.call(this, null);
     
     this.transform.pos = pos;
+    this.collider = new ColliderPoint(
+        this.transform,
+        this);
 }
 
 BasicRect.prototype = Object.create(GameObject.prototype);

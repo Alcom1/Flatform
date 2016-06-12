@@ -1,4 +1,0 @@
-var collision = function()
-{
-
-}

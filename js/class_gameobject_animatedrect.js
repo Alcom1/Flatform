@@ -3,6 +3,10 @@ var AnimatedRect = function(pos)
 {
     GameObject.call(this, null);
     this.animation = new Animation();
+    this.collider = new ColliderRect(
+        this.transform,
+        this,
+        new Vect(40, 30, 0));
 }
 
 AnimatedRect.prototype = Object.create(GameObject.prototype);
@@ -43,4 +47,10 @@ AnimatedRect.prototype.draw = function(ctx)
         ctx.lineWidth = 10;
         ctx.point(0, 0);
     ctx.restore();
+}
+
+//Game object collision
+GameObject.prototype.collide = function(other, pos)
+{
+	console.log("AR COLLISION");
 }
