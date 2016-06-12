@@ -21,7 +21,7 @@ Animation.prototype.update = function(dt)
 }
 
 //Draw
-Animation.prototype.transform = function(ctx)
+Animation.prototype.transform = function()
 {
     var step = (this.time * 1000) % this.length;    //Time in the current loop
     

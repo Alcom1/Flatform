@@ -7,6 +7,11 @@ var Collider = function(transform, type, parent)
     
 }
 
+Collider.prototype.update = function()
+{
+    this.transform = this.parent.transform;
+}
+
 Collider.prototype.draw = function(ctx)
 {
     ctx.point(this.transform.pos.x, this.transform.pos.y);

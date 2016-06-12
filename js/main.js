@@ -79,6 +79,7 @@ game.main =
 	draw : function(ctx)
 	{
 		game.scene_0.draw(ctx);
+		game.managerCollision.draw(ctx);
 	},
 	
 	//Draw filled text

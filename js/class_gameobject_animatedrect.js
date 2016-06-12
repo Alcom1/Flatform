@@ -16,6 +16,7 @@ AnimatedRect.prototype.update = function(dt)
 {
     GameObject.prototype.update.call(this);
     
+    this.transform = this.animation.transform();
     this.animation.update(dt);
 }
 
@@ -23,8 +24,6 @@ AnimatedRect.prototype.update = function(dt)
 AnimatedRect.prototype.draw = function(ctx)
 {
     GameObject.prototype.draw.call(this);
-    
-    this.transform = this.animation.transform(ctx); //Animation
     
     //Rect
     ctx.save();
@@ -52,5 +51,5 @@ AnimatedRect.prototype.draw = function(ctx)
 //Game object collision
 GameObject.prototype.collide = function(other, pos)
 {
-	console.log("AR COLLISION");
+
 }

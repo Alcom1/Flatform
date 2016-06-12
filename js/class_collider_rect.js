@@ -4,9 +4,21 @@ var ColliderRect = function(transform, parent, size)
     this.size = size;
 }
 
+ColliderRect.prototype = Object.create(Collider.prototype);
+
 ColliderRect.prototype.draw = function(ctx)
 {
-    ctx.point(this.transform.pos.x, this.transform.pos.y);
+    ctx.save();
+        this.transform.setTransform(ctx);
+        
+        ctx.strokeStyle="#FFFF00";
+        ctx.lineWidth = 5;
+        ctx.strokeRect(
+            -this.size.x / 2,
+            -this.size.y / 2,
+            this.size.x,
+            this.size.y);
+    ctx.restore();
 }
 
 //Collision check

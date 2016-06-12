@@ -17,11 +17,28 @@ game.managerCollision = (function()
 	{
 		for(var j = 0; j < colliders.length; j++)
 		{
+			colliders[j].update();
+			
 			for(i = 0; i < j; i++)
 			{
 				colliders[j].checkCollision(colliders[i]);
 			}
 		}
+	}
+	
+	//Draw
+	function draw(ctx)
+	{
+		for(i = 0; i < colliders.length; i++)
+		{
+			colliders[i].draw(ctx);
+		}
+	}
+	
+	//
+	function collisionPointRect(point, rect)
+	{
+		
 	}
 	
 	//
@@ -40,6 +57,7 @@ game.managerCollision = (function()
 	return {
 		init : init,
 		update : update,
+		draw : draw,
 		add : add,
 		clear : clear
 	}

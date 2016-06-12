@@ -11,16 +11,24 @@ var BasicRect = function(pos)
 
 BasicRect.prototype = Object.create(GameObject.prototype);
 
+//Game object update
+BasicRect.prototype.update = function(dt)
+{
+    GameObject.prototype.update.call(this);
+}
+
 //Game object draw
 BasicRect.prototype.draw = function(ctx)
 {
     GameObject.prototype.draw.call(this);
     
     ctx.save();
+        ctx.translate(this.transform.pos.x, this.transform.pos.y);
+        
         ctx.fillStyle="#0FF";
         ctx.fillRect(
-            this.transform.pos.x,
-            this.transform.pos.y,
+            -20,
+            -15,
             40,
             30);
     ctx.restore();
