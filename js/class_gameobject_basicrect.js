@@ -25,7 +25,7 @@ BasicRect.prototype.draw = function(ctx)
     ctx.save();
         ctx.translate(this.transform.pos.x, this.transform.pos.y);
         
-        ctx.fillStyle="#0FF";
+        ctx.fillStyle="#0BF";
         ctx.fillRect(
             -20,
             -15,

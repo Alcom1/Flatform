@@ -38,7 +38,7 @@ game.managerCollision = (function()
 	//
 	function collisionPointRect(point, rect)
 	{
-		
+		return true;
 	}
 	
 	//
@@ -58,6 +58,7 @@ game.managerCollision = (function()
 		init : init,
 		update : update,
 		draw : draw,
+		collisionPointRect : collisionPointRect,
 		add : add,
 		clear : clear
 	}

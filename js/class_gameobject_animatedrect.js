@@ -7,6 +7,7 @@ var AnimatedRect = function(pos)
         this.transform,
         this,
         new Vect(40, 30, 0));
+    this.color = "#888";
 }
 
 AnimatedRect.prototype = Object.create(GameObject.prototype);
@@ -18,6 +19,7 @@ AnimatedRect.prototype.update = function(dt)
     
     this.transform = this.animation.transform();
     this.animation.update(dt);
+    this.color = "#888";
 }
 
 //Game object draw
@@ -30,26 +32,17 @@ AnimatedRect.prototype.draw = function(ctx)
         this.transform.setTransform(ctx);
         
         //Draw rect
-        ctx.fillStyle="#FFF";
+        ctx.fillStyle = this.color;
         ctx.fillRect(
             -20,
             -15,
             40,
             30);
     ctx.restore();
-        
-    //Dot
-    ctx.save();
-        ctx.translate(this.transform.pos.x, this.transform.pos.y);
-        
-        ctx.strokeStyle="#FF0000";
-        ctx.lineWidth = 10;
-        ctx.point(0, 0);
-    ctx.restore();
 }
 
 //Game object collision
 GameObject.prototype.collide = function(other, pos)
 {
-
+    this.color = "#F00";
 }

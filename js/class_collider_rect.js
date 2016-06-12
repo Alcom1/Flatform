@@ -27,7 +27,7 @@ ColliderRect.prototype.checkCollision = function(other)
     switch(other.type)
     {
         case TYPE_COLL.POINT:
-            if(true)
+            if(game.managerCollision.collisionPointRect(this, other))
             {
                 this.parent.collide(other, new Vect(0, 0, 0));
                 other.parent.collide(this, new Vect(0, 0, 0));
