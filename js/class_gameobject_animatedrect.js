@@ -2,7 +2,7 @@
 var AnimatedRect = function()
 {
     GameObject.call(this, null);
-    this.size = new Vect(15, 60, 0);
+    this.size = new Vect(15, 20, 0);
     this.animation = new Animation();
     this.collider = new ColliderRect(
         this.transform,
@@ -21,6 +21,8 @@ AnimatedRect.prototype.update = function(dt)
     this.transform = this.animation.transform();
     this.animation.update(dt);
     this.color = "#888";
+    
+    console.log(this.transform.mat2.a.toFixed(2), this.transform.mat2.d.toFixed(2));
 }
 
 //Game object draw

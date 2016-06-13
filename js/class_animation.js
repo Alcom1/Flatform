@@ -27,8 +27,8 @@ Animation.prototype.transform = function()
     
     var transform = new Transform(1, 0, 0, 1, 0, 0);
     
-    this.transformPartial(transform, step, this.scale, TYPE_ANIM.SCALE);
     this.transformPartial(transform, step, this.rotate, TYPE_ANIM.ROTATE);
+    this.transformPartial(transform, step, this.scale, TYPE_ANIM.SCALE);
     this.transformPartial(transform, step, this.translate, TYPE_ANIM.TRANSLATE);
     
     return transform;
