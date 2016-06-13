@@ -13,6 +13,7 @@ game.main =
     ctx : undefined,			// Canvas context
    	lastTime : 0, 				// used by calculateDeltaTime() 
     debug : true,				// debug
+	showCol : false,			// show collisions
 	reset : true,
 	animationID : 0,			//ID index of the current frame.
 	
@@ -79,7 +80,9 @@ game.main =
 	draw : function(ctx)
 	{
 		game.scene_0.draw(ctx);
-		//game.managerCollision.draw(ctx);
+		
+		if(this.showCol)
+			game.managerCollision.draw(ctx);
 	},
 	
 	//Draw filled text

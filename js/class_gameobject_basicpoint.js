@@ -1,5 +1,5 @@
 //Test rect object
-var BasicRect = function(pos)
+var BasicPoint = function(pos)
 {
     GameObject.call(this, null);
     
@@ -7,29 +7,27 @@ var BasicRect = function(pos)
     this.collider = new ColliderPoint(
         this.transform,
         this);
+    this.color = "#FF0";
 }
 
-BasicRect.prototype = Object.create(GameObject.prototype);
+BasicPoint.prototype = Object.create(GameObject.prototype);
 
 //Game object update
-BasicRect.prototype.update = function(dt)
+BasicPoint.prototype.update = function(dt)
 {
     GameObject.prototype.update.call(this);
 }
 
 //Game object draw
-BasicRect.prototype.draw = function(ctx)
+BasicPoint.prototype.draw = function(ctx)
 {
     GameObject.prototype.draw.call(this);
     
     ctx.save();
         ctx.translate(this.transform.pos.x, this.transform.pos.y);
         
-        ctx.fillStyle = "#0BF";
-        ctx.fillRect(
-            -20,
-            -15,
-            40,
-            30);
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 10;
+        ctx.point(0, 0);
     ctx.restore();
 }

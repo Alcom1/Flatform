@@ -45,7 +45,7 @@ AnimatedRect.prototype.draw = function(ctx)
 }
 
 //Game object collision
-GameObject.prototype.collide = function(other, pos)
+AnimatedRect.prototype.collide = function(other, pos)
 {
     this.color = "#F00";
 }
