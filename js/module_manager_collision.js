@@ -38,13 +38,36 @@ game.managerCollision = (function()
 	//
 	function collisionPointRect(point, rect)
 	{
-		var temp = rect.transform.mat2.getMultVect(
-			point.transform.pos.getSub(
-				rect.transform.pos));
+		var ctx = game.main.ctx;
+		
+		var inverseMat2 = rect.transform.mat2.getInverse();
+		var pointRel = inverseMat2.getMultVect(point.transform.pos.getSub(rect.transform.pos));
+		
+		var kek = rect.transform.mat2.getMultVect(pointRel);
+		
+		console.log(rect.size.y);
+		
+		var ctx = game.main.ctx;
+		
+		ctx.save();
+			ctx.translate(rect.transform.pos.x, rect.transform.pos.y);
+			ctx.strokeStyle = "#00F";
+			ctx.lineWidth = 5;
+			
+			ctx.beginPath();
+			ctx.moveTo(0, 0);
+			ctx.lineTo(kek.x, 0);
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.moveTo(0, 0);
+			ctx.lineTo(0, kek.y);
+			ctx.stroke();
+		ctx.restore();
 		
 		if(
-			Math.abs(temp.x) < rect.size.x &&
-			Math.abs(temp.y) < rect.size.y)
+			Math.abs(pointRel.x) < rect.size.x &&
+			Math.abs(pointRel.y) < rect.size.y)
 		{
 			return true;
 		}
@@ -57,7 +80,7 @@ game.managerCollision = (function()
 	//
 	function add(collider)
 	{
-		colliders.push(collider);	
+		colliders.push(collider);
 	}
     
 	//

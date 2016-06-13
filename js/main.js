@@ -72,7 +72,6 @@ game.main =
 	{
 		game.managerSound.update(dt);
 		game.scene_0.update(dt);
-		game.managerCollision.update();
 	},
 	
 	//Draw the main scene
@@ -80,6 +79,7 @@ game.main =
 	{
 		game.scene_0.draw(ctx);
 		game.managerCollision.draw(ctx);
+		game.managerCollision.update();
 	},
 	
 	//Draw filled text

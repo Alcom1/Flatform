@@ -1,5 +1,5 @@
 //Test animated rect object
-var AnimatedRect = function(pos)
+var AnimatedRect = function()
 {
     GameObject.call(this, null);
     this.animation = new Animation();

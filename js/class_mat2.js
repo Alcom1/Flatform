@@ -18,13 +18,13 @@ Mat2.prototype.mult = function(Mat2)
     this.d = d;
 }
 
-Mat2.prototype.getMult = function(Mat2)
+Mat2.prototype.getMult = function(mat2)
 {
     return new Mat2(
-        this.a * Mat2.a + this.b * Mat2.c,
-        this.a * Mat2.b + this.b * Mat2.d,
-        this.c * Mat2.a + this.d * Mat2.c,
-        this.c * Mat2.b + this.d * Mat2.d);
+        this.a * mat2.a + this.b * mat2.c,
+        this.a * mat2.b + this.b * mat2.d,
+        this.c * mat2.a + this.d * mat2.c,
+        this.c * mat2.b + this.d * mat2.d);
 }
 
 Mat2.prototype.getMultVect = function(vect)
@@ -33,6 +33,16 @@ Mat2.prototype.getMultVect = function(vect)
         this.a * vect.x + this.b * vect.y,
         this.c * vect.x + this.d * vect.y,
         0);
+}
+
+Mat2.prototype.getInverse = function()
+{
+    var invdet = 1 / (this.a * this.d - this.b * this.c);
+    return new Mat2(
+        invdet *  this.d,
+        invdet * -this.b,
+        invdet * -this.c,
+        invdet *  this.a);
 }
 
 Mat2.prototype.scale = function(x, y)
