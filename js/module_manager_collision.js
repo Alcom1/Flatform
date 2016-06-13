@@ -38,9 +38,8 @@ game.managerCollision = (function()
 	//
 	function collisionPointRect(point, rect)
 	{
-		var smek = point.transform.pos.getSub(rect.transform.pos);
 		var inverseMat2 = rect.transform.mat2.getInverse();
-		var pointRel = inverseMat2.getMultVect(smek);
+		var pointRel = inverseMat2.getMultVect(point.transform.pos.getSub(rect.transform.pos));
 		
 		if(
 			Math.abs(pointRel.x) < rect.size.x &&
