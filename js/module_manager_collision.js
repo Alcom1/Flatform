@@ -38,32 +38,9 @@ game.managerCollision = (function()
 	//
 	function collisionPointRect(point, rect)
 	{
-		var ctx = game.main.ctx;
-		
+		var smek = point.transform.pos.getSub(rect.transform.pos);
 		var inverseMat2 = rect.transform.mat2.getInverse();
-		var pointRel = inverseMat2.getMultVect(point.transform.pos.getSub(rect.transform.pos));
-		
-		var kek = rect.transform.mat2.getMultVect(pointRel);
-		
-		console.log(rect.size.y);
-		
-		var ctx = game.main.ctx;
-		
-		ctx.save();
-			ctx.translate(rect.transform.pos.x, rect.transform.pos.y);
-			ctx.strokeStyle = "#00F";
-			ctx.lineWidth = 5;
-			
-			ctx.beginPath();
-			ctx.moveTo(0, 0);
-			ctx.lineTo(kek.x, 0);
-			ctx.stroke();
-			
-			ctx.beginPath();
-			ctx.moveTo(0, 0);
-			ctx.lineTo(0, kek.y);
-			ctx.stroke();
-		ctx.restore();
+		var pointRel = inverseMat2.getMultVect(smek);
 		
 		if(
 			Math.abs(pointRel.x) < rect.size.x &&

@@ -42,7 +42,7 @@ game.main =
 	 	this.animationID = requestAnimationFrame(this.frame.bind(this));
 	 	
 	 	//Calculate Delta Time of frame
-	 	var dt = this.calculateDeltaTime() / 8;
+	 	var dt = this.calculateDeltaTime() / 2;
 		
 		//Clear
 		this.ctx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
@@ -72,6 +72,7 @@ game.main =
 	{
 		game.managerSound.update(dt);
 		game.scene_0.update(dt);
+		game.managerCollision.update();
 	},
 	
 	//Draw the main scene
@@ -79,7 +80,6 @@ game.main =
 	{
 		game.scene_0.draw(ctx);
 		game.managerCollision.draw(ctx);
-		game.managerCollision.update();
 	},
 	
 	//Draw filled text

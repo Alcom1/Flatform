@@ -2,11 +2,12 @@
 var AnimatedRect = function()
 {
     GameObject.call(this, null);
+    this.size = new Vect(15, 60, 0);
     this.animation = new Animation();
     this.collider = new ColliderRect(
         this.transform,
         this,
-        new Vect(20, 15, 0));
+        this.size);
     this.color = "#888";
 }
 
@@ -34,10 +35,10 @@ AnimatedRect.prototype.draw = function(ctx)
         //Draw rect
         ctx.fillStyle = this.color;
         ctx.fillRect(
-            -20,
-            -15,
-            40,
-            30);
+            -this.size.x,
+            -this.size.y,
+             this.size.x * 2,
+             this.size.y * 2);
     ctx.restore();
 }
 

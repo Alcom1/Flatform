@@ -7,10 +7,10 @@ var Transform = function(a, b, c, d, x, y)
 Transform.prototype.setTransform = function(ctx)
 {
     ctx.transform(
-        this.mat2.d,
+        this.mat2.a,
         this.mat2.c,
         this.mat2.b,
-        this.mat2.a,
+        this.mat2.d,
         this.pos.x,
         this.pos.y);
 }
