@@ -11,14 +11,6 @@ var BasicRect = function(pos)
 
 BasicRect.prototype = Object.create(GameObject.prototype);
 
-//Establish colliders for this object.
-BasicRect.prototype.setColliders = function()
-{
-    this.collider = new ColliderPoint(
-        this.transform,
-        this);
-}
-
 //Game object update
 BasicRect.prototype.update = function(dt)
 {

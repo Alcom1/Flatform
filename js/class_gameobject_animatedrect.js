@@ -6,6 +6,10 @@ var AnimatedRect = function()
     this.size = new Vect(15, 20, 0);
     this.animation = new Animation();
     this.color = "#888";
+    this.collider = new ColliderRect(
+        this.transform,
+        this,
+        this.size);
 }
 
 AnimatedRect.prototype = Object.create(GameObject.prototype);
@@ -18,10 +22,6 @@ AnimatedRect.prototype.update = function(dt)
     this.transform = this.animation.transform();
     this.animation.update(dt);
     this.color = "#888";
-    this.collider = new ColliderRect(
-        this.transform,
-        this,
-        this.size);
 }
 
 //Game object draw
