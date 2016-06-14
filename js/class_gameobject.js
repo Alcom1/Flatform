@@ -24,18 +24,6 @@ GameObject.prototype.draw = function(ctx)
 	}	
 }
 
-//Establish colliders
-GameObject.prototype.setColliders = function()
-{
-	
-}
-
-//Remove colliders from the collision manager
-GameObject.prototype.removeColliders = function()
-{
-	
-}
-
 //Game object collision
 GameObject.prototype.collide = function(other, pos)
 {
