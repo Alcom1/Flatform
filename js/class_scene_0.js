@@ -20,13 +20,15 @@ Scene_0.prototype.init = function()
 	}
 }
 
-//Deinit
-Scene_0.prototype.deinit = function()
+//Scene update
+Scene_0.prototype.update = function(dt)
 {
-    for(var i = 0; i < this.gameObjects.length; i++)
-	{
-		this.gameObjects[i].removeColliders();
-	}
+    Scene.prototype.update.call(this, dt);
     
-    this.clear();
+    if(myKeys.keydown[myKeys.KEYBOARD.KEY_UP])
+    {
+        return 1;
+    }
+    
+    return -1;
 }

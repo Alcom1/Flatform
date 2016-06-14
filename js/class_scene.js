@@ -29,8 +29,6 @@ Scene.prototype.update = function(dt)
 	{
 		this.gameObjects[i].update(dt);
 	}
-	
-	return -1;
 }
 
 //Scene draw

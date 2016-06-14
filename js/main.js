@@ -76,7 +76,13 @@ game.main =
 	update : function(dt)
 	{
 		game.managerSound.update(dt);
-		this.scenes[this.indexS].update(dt);
+		var sceneVal = this.scenes[this.indexS].update(dt);
+		
+		if(sceneVal >= 0)
+		{
+			this.loadScene(sceneVal);
+		}
+		
 		game.managerCollision.update();
 	},
 	

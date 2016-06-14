@@ -19,3 +19,16 @@ Scene_1.prototype.init = function()
 		this.gameObjects[i].setColliders();
 	}
 }
+
+//Scene update
+Scene_1.prototype.update = function(dt)
+{
+    Scene.prototype.update.call(this, dt);
+    
+    if(myKeys.keydown[myKeys.KEYBOARD.KEY_DOWN])
+    {
+        return 0;
+    }
+    
+    return -1;
+}
