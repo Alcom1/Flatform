@@ -47,7 +47,7 @@ game.main =
 	 	this.animationID = requestAnimationFrame(this.frame.bind(this));
 	 	
 	 	//Calculate Delta Time of frame
-	 	var dt = this.calculateDeltaTime() / 2;
+	 	var dt = this.calculateDeltaTime();
 		
 		//Clear
 		this.ctx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
