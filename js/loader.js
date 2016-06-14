@@ -10,9 +10,6 @@ window.onload = function()
 	game.managerSound.init(0.4);
 	game.managerCollision.init();
 	
-	//Scenes
-	game.scene_0 = new Scene_0();
-	
 	//Main
 	game.main.init();
 }

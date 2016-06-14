@@ -14,8 +14,10 @@ game.main =
    	lastTime : 0, 				// used by calculateDeltaTime() 
     debug : true,				// debug
 	showCol : false,			// show collisions
-	reset : true,
-	animationID : 0,			//ID index of the current frame.
+	animationID : 0,			// ID index of the current frame.
+	scenes : [],				// Array of scenes
+	scene : undefined,			// Current scene
+	indexS : 1,					// Index of the current scene
 	
     //Initialization
 	init : function()
@@ -28,9 +30,10 @@ game.main =
 		this.canvas.width = this.WIDTH;
 		this.canvas.height = this.HEIGHT;
 		this.ctx = this.canvas.getContext('2d');
-		this.ctx.mozImageSmoothingEnabled = false;
-		this.ctx.msImageSmoothingEnabled = false;
-		this.ctx.imageSmoothingEnabled = false;
+		
+		//Scenes
+		this.scenes.push(new Scene_0());
+		this.scenes.push(new Scene_1());
 		
 		// start the game loop
 		this.frame();
@@ -72,14 +75,14 @@ game.main =
 	update : function(dt)
 	{
 		game.managerSound.update(dt);
-		game.scene_0.update(dt);
+		this.scenes[this.indexS].update(dt);
 		game.managerCollision.update();
 	},
 	
 	//Draw the main scene
 	draw : function(ctx)
 	{
-		game.scene_0.draw(ctx);
+		this.scenes[this.indexS].draw(ctx);
 		
 		if(this.showCol)
 			game.managerCollision.draw(ctx);

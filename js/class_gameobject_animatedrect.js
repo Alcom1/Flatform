@@ -21,8 +21,6 @@ AnimatedRect.prototype.update = function(dt)
     this.transform = this.animation.transform();
     this.animation.update(dt);
     this.color = "#888";
-    
-    console.log(this.transform.mat2.a.toFixed(2), this.transform.mat2.d.toFixed(2));
 }
 
 //Game object draw

@@ -10,7 +10,9 @@ Scene.prototype.update = function(dt)
 	for(var i = 0; i < this.gameObjects.length; i++)
 	{
 		this.gameObjects[i].update(dt);
-	}	
+	}
+	
+	return -1;
 }
 
 //Scene draw
