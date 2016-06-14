@@ -2,12 +2,9 @@
 var AnimatedRect = function()
 {
     GameObject.call(this, null);
+    
     this.size = new Vect(15, 20, 0);
     this.animation = new Animation();
-    this.collider = new ColliderRect(
-        this.transform,
-        this,
-        this.size);
     this.color = "#888";
 }
 
@@ -40,6 +37,21 @@ AnimatedRect.prototype.draw = function(ctx)
              this.size.x * 2,
              this.size.y * 2);
     ctx.restore();
+}
+
+//Establish colliders for this object.
+AnimatedRect.prototype.setColliders = function()
+{
+    this.collider = new ColliderRect(
+        this.transform,
+        this,
+        this.size);
+}
+
+//Remove colliders from the collision manager
+AnimatedRect.prototype.removeColliders = function()
+{
+    this.collider.remove();
 }
 
 //Game object collision

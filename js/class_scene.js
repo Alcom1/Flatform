@@ -4,6 +4,24 @@ var Scene = function()
 	this.gameObjects = [];
 }
 
+//Init
+Scene.prototype.init = function()
+{
+
+}
+
+//Deinit
+Scene.prototype.deinit = function()
+{
+	this.clear();
+}
+
+//Clear
+Scene.prototype.clear = function()
+{
+	this.gameObjects = [];	
+}
+
 //Scene update
 Scene.prototype.update = function(dt)
 {

@@ -4,12 +4,17 @@ var BasicRect = function(pos)
     GameObject.call(this, null);
     
     this.transform.pos = pos;
+}
+
+BasicRect.prototype = Object.create(GameObject.prototype);
+
+//Establish colliders for this object.
+BasicRect.prototype.setColliders = function()
+{
     this.collider = new ColliderPoint(
         this.transform,
         this);
 }
-
-BasicRect.prototype = Object.create(GameObject.prototype);
 
 //Game object update
 BasicRect.prototype.update = function(dt)
@@ -32,4 +37,18 @@ BasicRect.prototype.draw = function(ctx)
             40,
             30);
     ctx.restore();
+}
+
+//Establish colliders for this object.
+BasicRect.prototype.setColliders = function()
+{
+    this.collider = new ColliderPoint(
+        this.transform,
+        this);
+}
+
+//Remove colliders from the collision manager
+BasicRect.prototype.removeColliders = function()
+{
+    this.collider.remove();
 }

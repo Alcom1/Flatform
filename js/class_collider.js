@@ -22,3 +22,9 @@ Collider.prototype.checkCollision = function(other)
 {
 
 }
+
+//Remove
+Collider.prototype.remove = function()
+{
+    game.managerCollision.remove(this);
+}

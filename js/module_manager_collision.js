@@ -58,6 +58,19 @@ game.managerCollision = (function()
 	{
 		colliders.push(collider);
 	}
+	
+	//
+	function remove(target)
+	{
+		for(i = 0; i < colliders.length; i++)
+		{
+			if(colliders[i] == target)
+			{
+				colliders.splice(i, 1);
+				break;
+			}
+		}
+	}
     
 	//
 	function clear()
@@ -72,6 +85,7 @@ game.managerCollision = (function()
 		draw : draw,
 		collisionPointRect : collisionPointRect,
 		add : add,
+		remove : remove,
 		clear : clear
 	}
 }());

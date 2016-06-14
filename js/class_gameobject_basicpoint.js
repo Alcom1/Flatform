@@ -4,9 +4,6 @@ var BasicPoint = function(pos)
     GameObject.call(this, null);
     
     this.transform.pos = pos;
-    this.collider = new ColliderPoint(
-        this.transform,
-        this);
     this.color = "#FF0";
 }
 
@@ -30,4 +27,18 @@ BasicPoint.prototype.draw = function(ctx)
         ctx.lineWidth = 10;
         ctx.point(0, 0);
     ctx.restore();
+}
+
+//Establish colliders for this object.
+BasicPoint.prototype.setColliders = function()
+{
+    this.collider = new ColliderPoint(
+        this.transform,
+        this);
+}
+
+//Remove colliders from the collision manager
+BasicPoint.prototype.removeColliders = function()
+{
+    this.collider.remove();
 }

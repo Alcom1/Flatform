@@ -17,7 +17,7 @@ game.main =
 	animationID : 0,			// ID index of the current frame.
 	scenes : [],				// Array of scenes
 	scene : undefined,			// Current scene
-	indexS : 1,					// Index of the current scene
+	indexS : -1,				// Index of the current scene
 	
     //Initialization
 	init : function()
@@ -34,6 +34,7 @@ game.main =
 		//Scenes
 		this.scenes.push(new Scene_0());
 		this.scenes.push(new Scene_1());
+		this.loadScene(0);
 		
 		// start the game loop
 		this.frame();
@@ -86,6 +87,17 @@ game.main =
 		
 		if(this.showCol)
 			game.managerCollision.draw(ctx);
+	},
+	
+	//Load a scene
+	loadScene : function(index)
+	{
+		if(this.indexS != -1)
+			this.scenes[this.indexS].deinit();
+		
+		this.indexS = index;
+		game.managerCollision.clear();
+		this.scenes[this.indexS].init();
 	},
 	
 	//Draw filled text
