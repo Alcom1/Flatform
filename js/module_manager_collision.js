@@ -15,7 +15,6 @@ game.managerCollision = (function()
 	//Update
 	function update()
 	{
-		console.log(colliders.length);
 		for(var j = 0; j < colliders.length; j++)
 		{
 			colliders[j].update();
