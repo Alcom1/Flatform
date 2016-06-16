@@ -1,26 +1,26 @@
 //Test rect object
-var BasicRect = function(pos, size)
+var BasicCircle = function(pos, radius)
 {
     GameObject.call(this, null);
     
     this.transform.pos = pos;
-    this.size = size;
+    this.radius = radius;
     this.color = "#0BF"
     this.collider = new ColliderPoint(
         this.transform,
         this);
 }
 
-BasicRect.prototype = Object.create(GameObject.prototype);
+BasicCircle.prototype = Object.create(GameObject.prototype);
 
 //Game object update
-BasicRect.prototype.update = function(dt)
+BasicCircle.prototype.update = function(dt)
 {
     GameObject.prototype.update.call(this);
 }
 
 //Game object draw
-BasicRect.prototype.draw = function(ctx)
+BasicCircle.prototype.draw = function(ctx)
 {
     GameObject.prototype.draw.call(this);
     
@@ -28,10 +28,13 @@ BasicRect.prototype.draw = function(ctx)
         this.transform.setTransform(ctx);
         
         ctx.fillStyle = this.color;
-        ctx.fillRect(
-            -this.size.x,
-            -this.size.y,
-            this.size.x * 2,
-            this.size.y * 2);
+        ctx.beginPath();
+        ctx.arc(
+            0,
+            0,
+            this.radius,
+            0,
+            2 * Math.PI, true);
+        ctx.fill();
     ctx.restore();
 }

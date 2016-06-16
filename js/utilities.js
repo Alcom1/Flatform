@@ -72,47 +72,45 @@ function collisionPointRect(point, rect)
     }
 }
 
-function collisionPointCircle(point, rect)
+function collisionPointCircle(point, circle)
 {
     return false;
 }
 
-function collisionPointTri(point, rect)
+function collisionPointTri(point, tri)
 {
     return false;
 }
 
-function collisionRectRect(point, rect)
+function collisionRectRect(rectA, rectB)
 {
     return false;
 }
 
-function collisionRectCircle(point, rect)
+function collisionRectCircle(rect, circle)
 {
     return false;
 }
 
-function collisionRectTri(point, rect)
+function collisionRectTri(rect, tri)
 {
     return false;
 }
 
-function collisionCircleCircle(point, rect)
+function collisionCircleCircle(circleA, circleB)
 {
     return false;
 }
 
-function collisionCircleTri(point, rect)
+function collisionCircleTri(circle, tri)
 {
     return false;
 }
 
-function collisionTriTri(point, rect)
+function collisionTriTri(triA, triB)
 {
     return false;
 }
-
-
 
 //Enums
 TYPE_ANIM = Object.freeze({

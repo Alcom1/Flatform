@@ -24,7 +24,7 @@ BasicPoint.prototype.draw = function(ctx)
     GameObject.prototype.draw.call(this);
     
     ctx.save();
-        ctx.translate(this.transform.pos.x, this.transform.pos.y);
+        this.transform.setTransform(ctx);
         
         ctx.strokeStyle = this.color;
         ctx.lineWidth = 10;
