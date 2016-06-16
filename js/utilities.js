@@ -1,5 +1,15 @@
 //Global functions and enumerations
 
+// returns mouse position in local coordinate system of element
+function getMouse(e)
+{
+	var mouse = new Vect(
+		e.pageX - e.target.offsetLeft,
+		e.pageY - e.target.offsetTop,
+		0);
+	return mouse;
+}
+
 //constrained between min and max (inclusive)
 function clamp(val, min, max)
 {

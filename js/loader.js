@@ -9,6 +9,7 @@ window.onload = function()
     //Modules.
 	game.managerSound.init(0.4);
 	game.managerCollision.init();
+	game.managerMouse.init();
 	
 	//Main
 	game.main.init();

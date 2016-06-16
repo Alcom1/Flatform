@@ -9,7 +9,7 @@ Scene_1.prototype = Object.create(Scene.prototype);
 //Init
 Scene_1.prototype.init = function()
 {
-    this.gameObjects.push(new AnimatedRect(new Vect(15, 20, 0)));
+    this.gameObjects.push(new MouseCircle(25));
     this.gameObjects.push(new BasicCircle(new Vect(260, 280, 0), 20));
     this.gameObjects.push(new BasicCircle(new Vect(360, 220, 0), 20));
     this.gameObjects.push(new BasicCircle(new Vect(420, 320, 0), 20));

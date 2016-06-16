@@ -31,6 +31,9 @@ game.main =
 		this.canvas.height = this.HEIGHT;
 		this.ctx = this.canvas.getContext('2d');
 		
+		// canvas actions
+		this.canvas.onmousemove = this.doMousemove.bind(this)
+		
 		//Scenes
 		this.scenes.push(new Scene_0());
 		this.scenes.push(new Scene_1());
@@ -75,7 +78,6 @@ game.main =
 	//Update logic
 	update : function(dt)
 	{
-		game.managerSound.update(dt);
 		var sceneVal = this.scenes[this.indexS].update(dt);
 		
 		if(sceneVal >= 0)
@@ -84,6 +86,7 @@ game.main =
 		}
 		
 		game.managerCollision.update();
+		game.managerSound.update(dt);
 	},
 	
 	//Draw the main scene
@@ -104,6 +107,12 @@ game.main =
 		this.indexS = index;
 		game.managerCollision.clear();
 		this.scenes[this.indexS].init();
+	},
+	
+	//Mouse move tracking
+	doMousemove : function(e)
+	{
+		game.managerMouse.update(e);
 	},
 	
 	//Draw filled text
