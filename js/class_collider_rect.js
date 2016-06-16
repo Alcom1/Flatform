@@ -27,28 +27,28 @@ ColliderRect.prototype.checkCollision = function(other)
     switch(other.type)
     {
         case TYPE_COLL.POINT:
-            if(game.managerCollision.collisionPointRect(other, this))
+            if(collisionPointRect(other, this))
             {
                 this.parent.collide(other, new Vect(0, 0, 0));
                 other.parent.collide(this, new Vect(0, 0, 0));
             }
             break;
         case TYPE_COLL.RECT:
-            if(false)
+            if(collisionRectRect(this, other))
             {
                 this.parent.collide(other, new Vect(0, 0, 0));
                 other.parent.collide(this, new Vect(0, 0, 0));
             }
             break;
         case TYPE_COLL.CIRCLE:
-            if(false)
+            if(collisionRectCircle(this, other))
             {
                 this.parent.collide(other, new Vect(0, 0, 0));
                 other.parent.collide(this, new Vect(0, 0, 0));
             }
             break;
         case TYPE_COLL.TRI:
-            if(false)
+            if(collisionRectTri(this, other))
             {
                 this.parent.collide(other, new Vect(0, 0, 0));
                 other.parent.collide(this, new Vect(0, 0, 0));

@@ -36,24 +36,6 @@ game.managerCollision = (function()
 	}
 	
 	//
-	function collisionPointRect(point, rect)
-	{
-		var inverseMat2 = rect.transform.mat2.getInverse();
-		var pointRel = inverseMat2.getMultVect(point.transform.pos.getSub(rect.transform.pos));
-		
-		if(
-			Math.abs(pointRel.x) < rect.size.x &&
-			Math.abs(pointRel.y) < rect.size.y)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	
-	//
 	function add(collider)
 	{
 		colliders.push(collider);
@@ -83,7 +65,6 @@ game.managerCollision = (function()
 		init : init,
 		update : update,
 		draw : draw,
-		collisionPointRect : collisionPointRect,
 		add : add,
 		remove : remove,
 		clear : clear

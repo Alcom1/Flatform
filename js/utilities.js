@@ -54,6 +54,66 @@ CanvasRenderingContext2D.prototype.point = function (x, y)
     this.restore();
 }
 
+//Collisions (Point, Rect, Circle, Tri)
+function collisionPointRect(point, rect)
+{
+    var inverseMat2 = rect.transform.mat2.getInverse();
+    var pointRel = inverseMat2.getMultVect(point.transform.pos.getSub(rect.transform.pos));
+    
+    if(
+        Math.abs(pointRel.x) < rect.size.x &&
+        Math.abs(pointRel.y) < rect.size.y)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function collisionPointCircle(point, rect)
+{
+    return false;
+}
+
+function collisionPointTri(point, rect)
+{
+    return false;
+}
+
+function collisionRectRect(point, rect)
+{
+    return false;
+}
+
+function collisionRectCircle(point, rect)
+{
+    return false;
+}
+
+function collisionRectTri(point, rect)
+{
+    return false;
+}
+
+function collisionCircleCircle(point, rect)
+{
+    return false;
+}
+
+function collisionCircleTri(point, rect)
+{
+    return false;
+}
+
+function collisionTriTri(point, rect)
+{
+    return false;
+}
+
+
+
 //Enums
 TYPE_ANIM = Object.freeze({
     TRANSLATE: 0,
