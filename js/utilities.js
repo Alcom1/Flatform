@@ -109,7 +109,7 @@ function collisionRectTri(rect, tri)
 
 function collisionCircleCircle(circleA, circleB)
 {
-    return false;
+    return true;
 }
 
 function collisionCircleTri(circle, tri)

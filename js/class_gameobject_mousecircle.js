@@ -5,9 +5,10 @@ var MouseCircle = function(radius)
     
     this.radius = radius;
     this.color = "#FB0"
-    this.collider = new ColliderPoint(
+    this.collider = new ColliderCircle(
         this.transform,
-        this);
+        this,
+        this.radius);
 }
 
 MouseCircle.prototype = Object.create(GameObject.prototype);
