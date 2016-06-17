@@ -1,6 +1,6 @@
-var ColliderCircle = function(transform, parent, radius)
+var ColliderCircle = function(parent, transform, mask, radius)
 {
-    Collider.call(this, transform, TYPE_COLL.CIRCLE, parent);
+    Collider.call(this, parent, transform, TYPE_COLL.CIRCLE, mask);
     this.radius = radius;
 }
 

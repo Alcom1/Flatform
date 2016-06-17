@@ -7,8 +7,9 @@ var BasicCircle = function(pos, radius)
     this.radius = radius;
     this.color = "#0BF"
     this.collider = new ColliderCircle(
-        this.transform,
         this,
+        this.transform,
+        1,
         this.radius);
 }
 

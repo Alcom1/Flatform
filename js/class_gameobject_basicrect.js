@@ -7,8 +7,9 @@ var BasicRect = function(pos, size)
     this.size = size;
     this.color = "#0BF"
     this.collider = new ColliderPoint(
+        this,
         this.transform,
-        this);
+        1);
 }
 
 BasicRect.prototype = Object.create(GameObject.prototype);

@@ -6,8 +6,9 @@ var MouseCircle = function(radius)
     this.radius = radius;
     this.color = "#FB0"
     this.collider = new ColliderCircle(
-        this.transform,
         this,
+        this.transform,
+        1,
         this.radius);
 }
 

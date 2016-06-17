@@ -1,6 +1,6 @@
-var ColliderRect = function(transform, parent, size)
+var ColliderRect = function(parent, transform, mask, size)
 {
-    Collider.call(this, transform, TYPE_COLL.RECT, parent);
+    Collider.call(this, parent, transform, TYPE_COLL.RECT, mask);
     this.size = size;
 }
 

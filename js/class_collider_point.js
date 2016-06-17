@@ -1,6 +1,6 @@
-var ColliderPoint = function(transform, parent)
+var ColliderPoint = function(parent, transform, mask)
 {
-    Collider.call(this, transform, TYPE_COLL.POINT, parent);
+    Collider.call(this, parent, transform, TYPE_COLL.POINT, mask);
 }
 
 ColliderPoint.prototype = Object.create(Collider.prototype);

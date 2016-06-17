@@ -1,10 +1,10 @@
-var Collider = function(transform, type, parent)
+var Collider = function(parent, transform, type, mask)
 {
     this.transform = transform;
     this.type = type;
+    this.mask = mask;
     this.parent = parent;
     game.managerCollision.add(this);
-    
 }
 
 Collider.prototype.update = function()

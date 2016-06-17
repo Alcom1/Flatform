@@ -21,7 +21,8 @@ game.managerCollision = (function()
 			
 			for(i = 0; i < j; i++)
 			{
-				colliders[j].checkCollision(colliders[i]);
+				if(colliders[i].mask & colliders[j].mask)
+					colliders[j].checkCollision(colliders[i]);
 			}
 		}
 	}

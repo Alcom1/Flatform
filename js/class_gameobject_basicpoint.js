@@ -6,8 +6,9 @@ var BasicPoint = function(pos)
     this.transform.pos = pos;
     this.color = "#FF0";
     this.collider = new ColliderPoint(
+        this,
         this.transform,
-        this);
+        2);
 }
 
 BasicPoint.prototype = Object.create(GameObject.prototype);

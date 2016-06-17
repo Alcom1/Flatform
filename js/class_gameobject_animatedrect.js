@@ -7,8 +7,9 @@ var AnimatedRect = function(size)
     this.size = size;
     this.color = "#888";
     this.collider = new ColliderRect(
-        this.transform,
         this,
+        this.transform,
+        2,
         this.size);
 }
 
