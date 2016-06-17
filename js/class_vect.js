@@ -125,3 +125,9 @@ Vect.prototype.getMagnitude = function()
 {
 	return Math.sqrt(this.x * this.x + this.y * this.y);
 }
+
+//Vector length squared
+Vect.prototype.getMagnitudeSquared = function()
+{
+	return this.x * this.x + this.y * this.y;
+}

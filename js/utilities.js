@@ -109,7 +109,8 @@ function collisionRectTri(rect, tri)
 
 function collisionCircleCircle(circleA, circleB)
 {
-    return true;
+    return (circleA.radius + circleB.radius) * (circleA.radius + circleB.radius) >
+        circleA.transform.pos.getSub(circleB.transform.pos).getMagnitudeSquared();
 }
 
 function collisionCircleTri(circle, tri)
