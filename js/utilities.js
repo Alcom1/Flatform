@@ -84,7 +84,8 @@ function collisionPointRect(point, rect)
 
 function collisionPointCircle(point, circle)
 {
-    return false;
+    return circle.radius * circle.radius >
+        point.transform.pos.getSub(circle.transform.pos).getMagnitudeSquared() 
 }
 
 function collisionPointTri(point, tri)

@@ -13,6 +13,7 @@ Scene_1.prototype.init = function()
     this.gameObjects.push(new BasicCircle(new Vect(260, 280, 0), 20));
     this.gameObjects.push(new BasicCircle(new Vect(360, 220, 0), 20));
     this.gameObjects.push(new BasicCircle(new Vect(420, 320, 0), 20));
+    this.gameObjects.push(new BasicPoint(new Vect(220, 120, 0)));
 }
 
 //Scene update

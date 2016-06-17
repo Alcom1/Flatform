@@ -18,6 +18,8 @@ MouseCircle.prototype.update = function(dt)
 {
     GameObject.prototype.update.call(this);
     this.transform.pos = game.managerMouse.getPos();
+    
+    this.color = "#FB0";
 }
 
 //Game object draw
@@ -38,4 +40,10 @@ MouseCircle.prototype.draw = function(ctx)
             2 * Math.PI, true);
         ctx.fill();
     ctx.restore();
+}
+
+//Game object collision
+MouseCircle.prototype.collide = function(other, pos)
+{
+    this.color = "#FFF";
 }

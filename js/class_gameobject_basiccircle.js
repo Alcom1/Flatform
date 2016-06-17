@@ -18,8 +18,6 @@ BasicCircle.prototype = Object.create(GameObject.prototype);
 BasicCircle.prototype.update = function(dt)
 {
     GameObject.prototype.update.call(this);
-    
-    this.color = "#0BF";
 }
 
 //Game object draw
@@ -40,10 +38,4 @@ BasicCircle.prototype.draw = function(ctx)
             2 * Math.PI, true);
         ctx.fill();
     ctx.restore();
-}
-
-//Game object collision
-BasicCircle.prototype.collide = function(other, pos)
-{
-    this.color = "#FFF";
 }
