@@ -1,9 +1,9 @@
 //Animation constructor
-var Animation = function()
+var Animation = function(filename)
 {
     var xhr = new XMLHttpRequest();
     xhr.overrideMimeType("application/json");
-    xhr.open('GET', "assets/animation_sample.json", false);
+    xhr.open('GET', filename, false);
     xhr.send();
     var anim = JSON.parse(xhr.responseText);
     
