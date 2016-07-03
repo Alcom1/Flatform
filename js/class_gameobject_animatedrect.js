@@ -19,11 +19,10 @@ AnimatedRect.prototype = Object.create(GameObject.prototype);
 AnimatedRect.prototype.update = function(dt, gTrans)
 {
     this.lTrans = this.animation.transform();
-    this.gTrans = gTrans.getMult(this.lTrans);
     this.animation.update(dt);
     this.color = "#888";
     
-    GameObject.prototype.update.call(this, dt);
+    GameObject.prototype.update.call(this, dt, gTrans);
 }
 
 //Game object draw

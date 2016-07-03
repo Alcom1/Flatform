@@ -10,6 +10,8 @@ var GameObject = function(parent)
 //Game object update
 GameObject.prototype.update = function(dt, gTrans)
 {
+    this.gTrans = gTrans.getMult(this.lTrans);
+	
 	for(var i = 0; i < this.children.length; i++)
 	{
 		this.children[i].update(dt, this.gTrans);

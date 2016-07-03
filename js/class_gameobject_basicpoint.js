@@ -3,11 +3,11 @@ var BasicPoint = function(pos)
 {
     GameObject.call(this, null);
     
-    this.transform.pos = pos;
+    this.lTrans.pos = pos;
     this.color = "#FF0";
     this.collider = new ColliderPoint(
         this,
-        this.transform,
+        this.gTrans,
         2);
 }
 
@@ -16,14 +16,14 @@ BasicPoint.prototype = Object.create(GameObject.prototype);
 //Game object update
 BasicPoint.prototype.update = function(dt, gTrans)
 {
-    GameObject.prototype.update.call(this, dt);
+    GameObject.prototype.update.call(this, dt, gTrans);
 }
 
 //Game object draw
 BasicPoint.prototype.draw = function(ctx)
 {
     ctx.save();
-        this.transform.setTransform(ctx);
+        ctx.setTransformG(this.gTrans);
         
         ctx.strokeStyle = this.color;
         ctx.lineWidth = 10;

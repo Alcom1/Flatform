@@ -18,11 +18,10 @@ MouseCircle.prototype = Object.create(GameObject.prototype);
 MouseCircle.prototype.update = function(dt, gTrans)
 {
     this.lTrans.pos = game.managerMouse.getPos();
-    this.gTrans = gTrans.getMult(this.lTrans);
     
     this.color = "#FB0";
     
-    GameObject.prototype.update.call(this, dt);
+    GameObject.prototype.update.call(this, dt, gTrans);
 }
 
 //Game object draw

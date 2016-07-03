@@ -17,7 +17,7 @@ BasicRect.prototype = Object.create(GameObject.prototype);
 //Game object update
 BasicRect.prototype.update = function(dt, gTrans)
 {
-    GameObject.prototype.update.call(this, dt);
+    GameObject.prototype.update.call(this, dt, gTrans);
 }
 
 //Game object draw
