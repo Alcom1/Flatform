@@ -9,7 +9,7 @@ var Collider = function(parent, transform, type, mask)
 
 Collider.prototype.update = function()
 {
-    this.transform = this.parent.transform;
+    this.transform = this.parent.gTrans;
 }
 
 Collider.prototype.draw = function(ctx)

@@ -8,7 +8,7 @@ var AnimatedRect = function(size)
     this.color = "#888";
     this.collider = new ColliderRect(
         this,
-        this.transform,
+        this.gTrans,
         2,
         this.size);
 }
@@ -16,10 +16,10 @@ var AnimatedRect = function(size)
 AnimatedRect.prototype = Object.create(GameObject.prototype);
 
 //Game object update
-AnimatedRect.prototype.update = function(dt)
+AnimatedRect.prototype.update = function(dt, gTrans)
 {
-    
-    this.transform = this.animation.transform();
+    this.lTrans = this.animation.transform();
+    this.gTrans = gTrans.getMult(this.lTrans);
     this.animation.update(dt);
     this.color = "#888";
     
@@ -32,7 +32,7 @@ AnimatedRect.prototype.draw = function(ctx)
     
     //Rect
     ctx.save();
-        this.transform.setTransform(ctx);
+        ctx.setTransformG(this.gTrans);
         
         //Draw rect
         ctx.fillStyle = this.color;

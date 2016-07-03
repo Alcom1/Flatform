@@ -16,7 +16,7 @@ var BasicCircle = function(pos, radius)
 BasicCircle.prototype = Object.create(GameObject.prototype);
 
 //Game object update
-BasicCircle.prototype.update = function(dt)
+BasicCircle.prototype.update = function(dt, gTrans)
 {
     GameObject.prototype.update.call(this, dt);
 }

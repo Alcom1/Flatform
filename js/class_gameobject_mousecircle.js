@@ -7,7 +7,7 @@ var MouseCircle = function(radius)
     this.color = "#FB0"
     this.collider = new ColliderCircle(
         this,
-        this.transform,
+        this.gTrans,
         1,
         this.radius);
 }
@@ -15,9 +15,10 @@ var MouseCircle = function(radius)
 MouseCircle.prototype = Object.create(GameObject.prototype);
 
 //Game object update
-MouseCircle.prototype.update = function(dt)
+MouseCircle.prototype.update = function(dt, gTrans)
 {
-    this.transform.pos = game.managerMouse.getPos();
+    this.lTrans.pos = game.managerMouse.getPos();
+    this.gTrans = gTrans.getMult(this.lTrans);
     
     this.color = "#FB0";
     
@@ -28,7 +29,7 @@ MouseCircle.prototype.update = function(dt)
 MouseCircle.prototype.draw = function(ctx)
 {
     ctx.save();
-        this.transform.setTransform(ctx);
+        ctx.setTransformG(this.gTrans);
         
         ctx.fillStyle = this.color;
         ctx.beginPath();

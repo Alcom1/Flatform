@@ -28,6 +28,18 @@ function map(x, a, b, c, d)
     return (x - a) / (b - a) * (d - c) + c;
 }
 
+//Set canvas transform based on a transformation
+CanvasRenderingContext2D.prototype.setTransformG = function(trans)
+{
+    this.setTransform(
+        trans.mat2.a,
+        trans.mat2.c,
+        trans.mat2.b,
+        trans.mat2.d,
+        trans.pos.x,
+        trans.pos.y);    
+}
+
 //Canvas rounded rectangle.
 CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r, d)
 {

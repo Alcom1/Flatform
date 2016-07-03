@@ -14,7 +14,7 @@ var BasicPoint = function(pos)
 BasicPoint.prototype = Object.create(GameObject.prototype);
 
 //Game object update
-BasicPoint.prototype.update = function(dt)
+BasicPoint.prototype.update = function(dt, gTrans)
 {
     GameObject.prototype.update.call(this, dt);
 }

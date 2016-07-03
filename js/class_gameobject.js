@@ -1,17 +1,18 @@
 //Base game object
 var GameObject = function(parent)
 {
-	this.transform = new Transform(1, 0, 0, 1, 0, 0);
+	this.lTrans = new Transform(1, 0, 0, 1, 0, 0);
+	this.gTrans = new Transform(1, 0, 0, 1, 0, 0); 
     this.parent = parent;
     this.children = [];
 }
 
 //Game object update
-GameObject.prototype.update = function(dt)
+GameObject.prototype.update = function(dt, gTrans)
 {
 	for(var i = 0; i < this.children.length; i++)
 	{
-		this.children[i].update(dt);
+		this.children[i].update(dt, this.gTrans);
 	}	
 }
 

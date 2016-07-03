@@ -4,12 +4,12 @@ var Transform = function(a, b, c, d, x, y)
     this.pos = new Vect(x, y, 0);
 }
 
-Transform.prototype.setTransform = function(ctx)
+Transform.prototype.copy = function()
 {
-    ctx.transform(
+    return new Transform(
         this.mat2.a,
-        this.mat2.c,
         this.mat2.b,
+        this.mat2.c,
         this.mat2.d,
         this.pos.x,
         this.pos.y);
@@ -30,4 +30,12 @@ Transform.prototype.rotate = function(angle)
 Transform.prototype.translate = function(x, y)
 {
     this.pos.add(new Vect(x, y, 0));
+}
+
+Transform.prototype.getMult = function(transform)
+{
+    var temp = this.copy();
+    temp.mat2.mult(transform.mat2);
+    temp.pos.add(transform.pos);
+    return temp;
 }
