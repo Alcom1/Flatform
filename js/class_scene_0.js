@@ -20,7 +20,7 @@ Scene_0.prototype.update = function(dt)
 {
     Scene.prototype.update.call(this, dt);
     
-    if(myKeys.keydown[myKeys.KEYBOARD.KEY_UP])
+    if(keys.isReleased(keys.KEYBOARD.UP))
     {
         return 1;
     }

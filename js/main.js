@@ -37,6 +37,7 @@ game.main =
 		//Scenes
 		this.scenes.push(new Scene_0());
 		this.scenes.push(new Scene_1());
+		this.scenes.push(new Scene_2());
 		this.loadScene(0);
 		
 		// start the game loop
@@ -73,6 +74,9 @@ game.main =
 				"white",
 				false);
 		}
+		
+		//KEYS
+		keys.refresh();
 	},
 	
 	//Update logic
