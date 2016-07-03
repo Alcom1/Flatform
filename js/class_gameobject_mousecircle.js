@@ -17,17 +17,16 @@ MouseCircle.prototype = Object.create(GameObject.prototype);
 //Game object update
 MouseCircle.prototype.update = function(dt)
 {
-    GameObject.prototype.update.call(this);
     this.transform.pos = game.managerMouse.getPos();
     
     this.color = "#FB0";
+    
+    GameObject.prototype.update.call(this, dt);
 }
 
 //Game object draw
 MouseCircle.prototype.draw = function(ctx)
 {
-    GameObject.prototype.draw.call(this);
-    
     ctx.save();
         this.transform.setTransform(ctx);
         
@@ -41,6 +40,8 @@ MouseCircle.prototype.draw = function(ctx)
             2 * Math.PI, true);
         ctx.fill();
     ctx.restore();
+    
+    GameObject.prototype.draw.call(this, ctx);
 }
 
 //Game object collision

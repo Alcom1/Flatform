@@ -17,14 +17,12 @@ BasicRect.prototype = Object.create(GameObject.prototype);
 //Game object update
 BasicRect.prototype.update = function(dt)
 {
-    GameObject.prototype.update.call(this);
+    GameObject.prototype.update.call(this, dt);
 }
 
 //Game object draw
 BasicRect.prototype.draw = function(ctx)
 {
-    GameObject.prototype.draw.call(this);
-    
     ctx.save();
         this.transform.setTransform(ctx);
         
@@ -35,4 +33,6 @@ BasicRect.prototype.draw = function(ctx)
             this.size.x * 2,
             this.size.y * 2);
     ctx.restore();
+    
+    GameObject.prototype.draw.call(this, ctx);
 }

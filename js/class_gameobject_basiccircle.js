@@ -18,14 +18,12 @@ BasicCircle.prototype = Object.create(GameObject.prototype);
 //Game object update
 BasicCircle.prototype.update = function(dt)
 {
-    GameObject.prototype.update.call(this);
+    GameObject.prototype.update.call(this, dt);
 }
 
 //Game object draw
 BasicCircle.prototype.draw = function(ctx)
 {
-    GameObject.prototype.draw.call(this);
-    
     ctx.save();
         this.transform.setTransform(ctx);
         
@@ -39,4 +37,6 @@ BasicCircle.prototype.draw = function(ctx)
             2 * Math.PI, true);
         ctx.fill();
     ctx.restore();
+    
+    GameObject.prototype.draw.call(this, ctx);
 }

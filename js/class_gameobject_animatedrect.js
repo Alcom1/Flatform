@@ -18,17 +18,17 @@ AnimatedRect.prototype = Object.create(GameObject.prototype);
 //Game object update
 AnimatedRect.prototype.update = function(dt)
 {
-    GameObject.prototype.update.call(this);
     
     this.transform = this.animation.transform();
     this.animation.update(dt);
     this.color = "#888";
+    
+    GameObject.prototype.update.call(this, dt);
 }
 
 //Game object draw
 AnimatedRect.prototype.draw = function(ctx)
 {
-    GameObject.prototype.draw.call(this);
     
     //Rect
     ctx.save();
@@ -42,6 +42,8 @@ AnimatedRect.prototype.draw = function(ctx)
              this.size.x * 2,
              this.size.y * 2);
     ctx.restore();
+    
+    GameObject.prototype.draw.call(this, ctx);
 }
 
 //Game object collision

@@ -16,14 +16,12 @@ BasicPoint.prototype = Object.create(GameObject.prototype);
 //Game object update
 BasicPoint.prototype.update = function(dt)
 {
-    GameObject.prototype.update.call(this);
+    GameObject.prototype.update.call(this, dt);
 }
 
 //Game object draw
 BasicPoint.prototype.draw = function(ctx)
 {
-    GameObject.prototype.draw.call(this);
-    
     ctx.save();
         this.transform.setTransform(ctx);
         
@@ -31,4 +29,6 @@ BasicPoint.prototype.draw = function(ctx)
         ctx.lineWidth = 10;
         ctx.point(0, 0);
     ctx.restore();
+    
+    GameObject.prototype.draw.call(this, ctx);
 }

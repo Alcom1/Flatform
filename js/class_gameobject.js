@@ -20,7 +20,7 @@ GameObject.prototype.draw = function(ctx)
 {
 	for(var i = 0; i < this.children.length; i++)
 	{
-		this.children[i].update(ctx);
+		this.children[i].draw(ctx);
 	}	
 }
 

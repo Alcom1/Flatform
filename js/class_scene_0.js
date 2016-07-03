@@ -9,10 +9,8 @@ Scene_0.prototype = Object.create(Scene.prototype);
 //Init
 Scene_0.prototype.init = function()
 {
-    this.gameObjects.push(new AnimatedRect(new Vect(15, 20, 0)));
-    this.gameObjects.push(new BasicPoint(new Vect(420, 280, 0)));
-    this.gameObjects.push(new BasicPoint(new Vect(260, 220, 0)));
-    this.gameObjects.push(new BasicPoint(new Vect(360, 320, 0)));
+    this.gameObjects.push(new MouseCircle(25));
+    this.gameObjects[0].children.push(new AnimatedRect(new Vect(15, 20, 0)));
 }
 
 //Scene update
