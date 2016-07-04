@@ -21,10 +21,19 @@ GameObject.prototype.update = function(dt, gTrans)
 //Game object draw
 GameObject.prototype.draw = function(ctx)
 {
+	
+}
+
+//
+GameObject.prototype.stack = function()
+{
+	arr = [this];
+	
 	for(var i = 0; i < this.children.length; i++)
 	{
-		this.children[i].draw(ctx);
-	}	
+		arr = arr.concat(this.children[i].stack());
+	}
+	return arr;
 }
 
 //Game object collision

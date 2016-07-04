@@ -35,8 +35,15 @@ Scene.prototype.update = function(dt)
 //Scene draw
 Scene.prototype.draw = function(ctx)
 {
+	var arr = [];
+	
 	for(var i = 0; i < this.gameObjects.length; i++)
 	{
-		this.gameObjects[i].draw(ctx);
-	}	
+		arr = arr.concat(this.gameObjects[i].stack());
+	}
+	
+	for(var i = 0; i < arr.length; i++)
+	{
+		arr[i].draw(ctx);
+	}
 }
