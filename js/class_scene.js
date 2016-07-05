@@ -42,6 +42,15 @@ Scene.prototype.draw = function(ctx)
 		arr = arr.concat(this.gameObjects[i].stack());
 	}
 	
+	arr.sort(
+		function(a, b)
+		{
+			if(a.zIndex == b.zIndex)
+				return 0;
+			
+			return a.zIndex > b.zIndex;
+		});
+	
 	for(var i = 0; i < arr.length; i++)
 	{
 		arr[i].draw(ctx);

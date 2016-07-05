@@ -2,7 +2,8 @@
 var GameObject = function(parent)
 {
 	this.lTrans = new Transform(1, 0, 0, 1, 0, 0);
-	this.gTrans = new Transform(1, 0, 0, 1, 0, 0); 
+	this.gTrans = new Transform(1, 0, 0, 1, 0, 0);
+	this.zIndex = 0;
     this.parent = parent;
     this.children = [];
 }
