@@ -5,7 +5,6 @@ var GameObject = function(parent)
 	this.gTrans = new Transform(1, 0, 0, 1, 0, 0);
 	this.zIndex = 0;
     this.parent = parent;
-	console.log(this.parent);
 	this.parent.pushGO(this);
     this.children = [];
 }
@@ -13,12 +12,9 @@ var GameObject = function(parent)
 //Game object update
 GameObject.prototype.update = function(dt, gTrans)
 {
+	gTrans = this.parent.gTrans;
+
     this.gTrans = gTrans.getMult(this.lTrans);
-	
-	for(var i = 0; i < this.children.length; i++)
-	{
-		this.children[i].update(dt, this.gTrans);
-	}	
 }
 
 //Game object draw

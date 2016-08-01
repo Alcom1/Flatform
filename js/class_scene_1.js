@@ -9,11 +9,11 @@ Scene_1.prototype = Object.create(Scene.prototype);
 //Init
 Scene_1.prototype.init = function()
 {
-    this.gameObjects.push(new MouseCircle(this, 25));
-    this.gameObjects.push(new BasicCircle(this, new Vect(260, 280, 0), 20));
-    this.gameObjects.push(new BasicCircle(this, new Vect(360, 220, 0), 20));
-    this.gameObjects.push(new BasicCircle(this, new Vect(420, 320, 0), 20));
-    this.gameObjects.push(new BasicPoint(this, new Vect(220, 120, 0)));
+    new MouseCircle(this, 25);
+    new BasicCircle(this, new Vect(260, 280, 0), 20);
+    new BasicCircle(this, new Vect(360, 220, 0), 20);
+    new BasicCircle(this, new Vect(420, 320, 0), 20);
+    new BasicPoint(this, new Vect(220, 120, 0));
 }
 
 //Scene update

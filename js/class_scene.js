@@ -1,8 +1,7 @@
 //Scene
 var Scene = function()
 {
-	this.gameObjects = [];
-	this.transform = new Transform(1, 0, 0, 1, 0, 0);
+	this.gTrans = new Transform(1, 0, 0, 1, 0, 0);
 	this.gameObjectsAll = []
 }
 
@@ -21,7 +20,7 @@ Scene.prototype.deinit = function()
 //Clear
 Scene.prototype.clear = function()
 {
-	this.gameObjects = [];	
+	this.gameObjectsAll = [];
 }
 
 //
@@ -42,9 +41,9 @@ Scene.prototype.pushGO = function(gameObject)
 //Scene update
 Scene.prototype.update = function(dt)
 {
-	for(var i = 0; i < this.gameObjects.length; i++)
+	for(var i = 0; i < this.gameObjectsAll.length; i++)
 	{
-		this.gameObjects[i].update(dt, this.transform);
+		this.gameObjectsAll[i].update(dt, this.transform);
 	}
 }
 
