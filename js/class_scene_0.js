@@ -10,9 +10,9 @@ Scene_0.prototype = Object.create(Scene.prototype);
 Scene_0.prototype.init = function()
 {
     new MouseCircle(this, 25);
-    this.gameObjectsAll[0].children.push(
+    this.gameObjects[0].children.push(
         new AnimatedRect(
-            this.gameObjectsAll[0],
+            this.gameObjects[0],
             new Vect(15, 20, 0),
             "assets/animation_sample_2.json"));
 }
