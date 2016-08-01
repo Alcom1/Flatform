@@ -9,10 +9,12 @@ Scene_2.prototype = Object.create(Scene.prototype);
 //Init
 Scene_2.prototype.init = function()
 {
+    this.preloader["anim"] = loadJson("assets/animation_sample.json");
+
     new AnimatedRect(
         this,
         new Vect(15, 20, 0),
-        "assets/animation_sample.json");
+        this.preloader["anim"]);
     new BasicPoint(this, new Vect(420, 280, 0));
     new BasicPoint(this, new Vect(260, 220, 0));
     new BasicPoint(this, new Vect(360, 320, 0));
