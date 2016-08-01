@@ -2,7 +2,8 @@
 var Scene = function()
 {
 	this.gTrans = new Transform(1, 0, 0, 1, 0, 0);
-	this.gameObjects = []
+	this.gameObjects = [];
+	this.preloader = {};
 }
 
 //Init

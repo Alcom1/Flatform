@@ -28,6 +28,17 @@ function map(x, a, b, c, d)
     return (x - a) / (b - a) * (d - c) + c;
 }
 
+//XMLHttpRequest methods
+
+function loadJson(fileName)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.overrideMimeType("application/json");
+    xhr.open('GET', fileName, false);
+    xhr.send();
+    return JSON.parse(xhr.responseText);
+}
+
 //Set canvas transform based on a transformation
 CanvasRenderingContext2D.prototype.setTransformG = function(trans)
 {

@@ -1,9 +1,9 @@
 //Test animated rect object
-var AnimatedRect = function(parent, size, filename)
+var AnimatedRect = function(parent, size, anim)
 {
     GameObject.call(this, parent);
     
-    this.animation = new Animation(filename);
+    this.animation = new Animation(anim);
     this.size = size;
     this.color = "#888";
     this.collider = new ColliderRect(
