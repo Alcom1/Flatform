@@ -22,6 +22,7 @@ Scene.prototype.deinit = function()
 Scene.prototype.clear = function()
 {
 	this.gameObjects = [];
+	this.preloader = {};
 }
 
 //
