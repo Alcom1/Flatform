@@ -5,6 +5,8 @@ var GameObject = function(parent)
 	this.gTrans = new Transform(1, 0, 0, 1, 0, 0);
 	this.zIndex = 0;
     this.parent = parent;
+	console.log(this.parent);
+	this.parent.pushGO(this);
     this.children = [];
 }
 
@@ -37,8 +39,15 @@ GameObject.prototype.stack = function()
 	return arr;
 }
 
+//
+GameObject.prototype.pushGO = function(gameObject)
+{
+	this.parent.pushGO(gameObject);
+}
+
 //Game object collision
 GameObject.prototype.collide = function(other, pos)
 {
 	
 }
+

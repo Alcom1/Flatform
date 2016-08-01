@@ -1,7 +1,7 @@
 //Test rect object
-var BasicCircle = function(pos, radius)
+var BasicCircle = function(parent, pos, radius)
 {
-    GameObject.call(this, null);
+    GameObject.call(this, parent);
     
     this.lTrans.pos = pos;
     this.radius = radius;

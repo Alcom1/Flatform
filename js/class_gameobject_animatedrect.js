@@ -1,7 +1,7 @@
 //Test animated rect object
-var AnimatedRect = function(size, filename)
+var AnimatedRect = function(parent, size, filename)
 {
-    GameObject.call(this, null);
+    GameObject.call(this, parent);
     
     this.animation = new Animation(filename);
     this.size = size;

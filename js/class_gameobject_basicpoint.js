@@ -1,7 +1,7 @@
 //Test rect object
-var BasicPoint = function(pos)
+var BasicPoint = function(parent, pos)
 {
-    GameObject.call(this, null);
+    GameObject.call(this, parent);
     
     this.lTrans.pos = pos;
     this.color = "#FF0";

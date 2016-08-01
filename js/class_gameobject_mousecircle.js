@@ -1,7 +1,7 @@
 //Test rect object
-var MouseCircle = function(radius)
+var MouseCircle = function(parent, radius)
 {
-    GameObject.call(this, null);
+    GameObject.call(this, parent);
     
     this.radius = radius;
     this.color = "#FB0"

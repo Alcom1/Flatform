@@ -1,7 +1,7 @@
 //Test rect object
-var BasicRect = function(pos, size)
+var BasicRect = function(parent, pos, size)
 {
-    GameObject.call(this, null);
+    GameObject.call(this, parent);
     
     this.transform.pos = pos;
     this.size = size;

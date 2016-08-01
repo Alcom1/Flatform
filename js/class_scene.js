@@ -3,6 +3,7 @@ var Scene = function()
 {
 	this.gameObjects = [];
 	this.transform = new Transform(1, 0, 0, 1, 0, 0);
+	this.gameObjectsAll = []
 }
 
 //Init
@@ -23,6 +24,21 @@ Scene.prototype.clear = function()
 	this.gameObjects = [];	
 }
 
+//
+Scene.prototype.pushGO = function(gameObject)
+{
+	this.gameObjectsAll.push(gameObject);
+	
+	this.gameObjectsAll.sort(
+		function(a, b)
+		{
+			if(a.zIndex == b.zIndex)
+				return 0;
+			
+			return a.zIndex > b.zIndex;
+		});
+}
+
 //Scene update
 Scene.prototype.update = function(dt)
 {
@@ -34,25 +50,9 @@ Scene.prototype.update = function(dt)
 
 //Scene draw
 Scene.prototype.draw = function(ctx)
-{
-	var arr = [];
-	
-	for(var i = 0; i < this.gameObjects.length; i++)
+{	
+	for(var i = 0; i < this.gameObjectsAll.length; i++)
 	{
-		arr = arr.concat(this.gameObjects[i].stack());
-	}
-	
-	arr.sort(
-		function(a, b)
-		{
-			if(a.zIndex == b.zIndex)
-				return 0;
-			
-			return a.zIndex > b.zIndex;
-		});
-	
-	for(var i = 0; i < arr.length; i++)
-	{
-		arr[i].draw(ctx);
+		this.gameObjectsAll[i].draw(ctx);
 	}
 }
