@@ -39,25 +39,4 @@ Transform.prototype.getMult = function(transform)
     temp.pos.add(this.mat2.getMultVect(transform.pos));
 
     return temp;
-
-    // return new Transform(
-    //     this.mat2.a * transform.mat2.a +
-    //     this.mat2.b * transform.mat2.c,
-        
-    //     this.mat2.a * transform.mat2.b +
-    //     this.mat2.b * transform.mat2.d,
-
-    //     this.mat2.c * transform.mat2.a +
-    //     this.mat2.d * transform.mat2.c,
-        
-    //     this.mat2.c * transform.mat2.b +
-    //     this.mat2.d * transform.mat2.d,
-        
-    //     this.mat2.a * transform.pos.x +
-    //     this.mat2.b * transform.pos.y +
-    //     this.pos.x,
-        
-    //     this.mat2.c * transform.pos.x +
-    //     this.mat2.d * transform.pos.y +
-    //     this.pos.y);
 }
