@@ -14,6 +14,7 @@ Scene_2.prototype.init = function()
     new AnimatedRect(
         this,
         new Vect(15, 20),
+        "#888",
         this.preloader["anim"]);
     new BasicPoint(this, new Vect(420, 280));
     new BasicPoint(this, new Vect(260, 220));

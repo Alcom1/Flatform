@@ -13,11 +13,11 @@
     "scale" : [
         {
             "time" : 0,
-            "move" : [1, 1]
+            "move" : [0.25, 5]
         },
         {
             "time" : 6000,
-            "move" : [1, 1]
+            "move" : [0.25, 5]
         }
     ],
     "translate" : [

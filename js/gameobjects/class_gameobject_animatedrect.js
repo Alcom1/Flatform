@@ -1,16 +1,17 @@
 //Test animated rect object
-var AnimatedRect = function(parent, size, anim)
+var AnimatedRect = function(parent, size, color, anim)
 {
     GameObject.call(this, parent);
     
     this.animation = new Animation(anim);
     this.size = size;
-    this.color = "#888";
+    this.color = color;
     this.collider = new ColliderRect(
         this,
         this.gTrans,
         2,
         this.size);
+    this.colliding = false;
 }
 
 AnimatedRect.prototype = Object.create(GameObject.prototype);
@@ -18,9 +19,10 @@ AnimatedRect.prototype = Object.create(GameObject.prototype);
 //Game object update
 AnimatedRect.prototype.update = function(dt, gTrans)
 {
+    this.colliding = false;
+
     this.lTrans = this.animation.transform();
     this.animation.update(dt);
-    this.color = "#888";
     
     GameObject.prototype.update.call(this, dt, gTrans);
 }
@@ -34,7 +36,7 @@ AnimatedRect.prototype.draw = function(ctx)
         ctx.setTransformG(this.gTrans);
         
         //Draw rect
-        ctx.fillStyle = this.color;
+        ctx.fillStyle = this.colliding ? "#F00" : this.color;
         ctx.fillRect(
             -this.size.x,
             -this.size.y,
@@ -48,5 +50,5 @@ AnimatedRect.prototype.draw = function(ctx)
 //Game object collision
 AnimatedRect.prototype.collide = function(other, pos)
 {
-    this.color = "#F00";
+    this.colliding = true;
 }
