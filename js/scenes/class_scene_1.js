@@ -10,10 +10,10 @@ Scene_1.prototype = Object.create(Scene.prototype);
 Scene_1.prototype.init = function()
 {
     new MouseCircle(this, 25);
-    new BasicCircle(this, new Vect(260, 280, 0), 20);
-    new BasicCircle(this, new Vect(360, 220, 0), 20);
-    new BasicCircle(this, new Vect(420, 320, 0), 20);
-    new BasicPoint(this, new Vect(220, 120, 0));
+    new BasicCircle(this, new Vect(260, 280), 20);
+    new BasicCircle(this, new Vect(360, 220), 20);
+    new BasicCircle(this, new Vect(420, 320), 20);
+    new BasicPoint(this, new Vect(220, 120));
 }
 
 //Scene update

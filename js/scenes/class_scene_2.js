@@ -13,11 +13,11 @@ Scene_2.prototype.init = function()
 
     new AnimatedRect(
         this,
-        new Vect(15, 20, 0),
+        new Vect(15, 20),
         this.preloader["anim"]);
-    new BasicPoint(this, new Vect(420, 280, 0));
-    new BasicPoint(this, new Vect(260, 220, 0));
-    new BasicPoint(this, new Vect(360, 320, 0));
+    new BasicPoint(this, new Vect(420, 280));
+    new BasicPoint(this, new Vect(260, 220));
+    new BasicPoint(this, new Vect(360, 320));
 }
 
 //Scene update

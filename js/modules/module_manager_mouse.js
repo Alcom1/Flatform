@@ -9,7 +9,7 @@ game.managerMouse = (function()
 	//Init
 	function init()
 	{
-        mousePos = new Vect(0, 0, 0);
+        mousePos = new Vect(0, 0);
 	}
     
     //Update the mouse module.

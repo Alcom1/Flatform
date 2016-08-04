@@ -31,8 +31,7 @@ Mat2.prototype.getMultVect = function(vect)
 {
     return new Vect(
         this.a * vect.x + this.b * vect.y,
-        this.c * vect.x + this.d * vect.y,
-        0);
+        this.c * vect.x + this.d * vect.y);
 }
 
 Mat2.prototype.getInverse = function()

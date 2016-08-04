@@ -15,7 +15,7 @@ Scene_0.prototype.init = function()
     this.gameObjects[0].children.push(
         new AnimatedRect(
             this.gameObjects[0],
-            new Vect(15, 20, 0),
+            new Vect(15, 20),
             this.preloader["anim"]));
 }
 

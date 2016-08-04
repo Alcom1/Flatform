@@ -3,6 +3,10 @@
 //Choice 1 takes angle and magnitude
 var Vect = function(a, b, choice)
 {
+	if(choice == null)
+	{
+		choice = 0;
+	}
 	switch(choice)
 	{
 		case 0: // Cartesian
@@ -34,8 +38,7 @@ Vect.prototype.getAdd = function(vect)
 {
 	return new Vect(
 		this.x + vect.x,
-		this.y + vect.y,
-		0);
+		this.y + vect.y);
 }
 
 //Vector subtraction
@@ -50,8 +53,7 @@ Vect.prototype.getSub = function(vect)
 {
 	return new Vect(
 		this.x - vect.x,
-		this.y - vect.y,
-		0);
+		this.y - vect.y);
 }
 
 //Vector multiplication
@@ -66,8 +68,7 @@ Vect.prototype.getMult = function(value)
 {
 	return new Vect(
 		this.x * value,
-		this.y * value, 
-		0);
+		this.y * value);
 }
 
 //Vector division
@@ -82,8 +83,7 @@ Vect.prototype.getDiv = function(value)
 {
 	return new Vect(
 		this.x / value,
-		this.y / value, 
-		0);
+		this.y / value);
 }
 
 //Return dot product with another vector
@@ -116,8 +116,7 @@ Vect.prototype.getNorm = function()
 		this.y * this.y);
 	return new Vect(
 		this.x / length,
-		this.y / length,
-		0);
+		this.y / length);
 }
 
 //Get magnitude of the vector.

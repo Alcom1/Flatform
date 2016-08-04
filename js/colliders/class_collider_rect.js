@@ -29,29 +29,29 @@ ColliderRect.prototype.checkCollision = function(other)
         case TYPE_COLL.POINT:
             if(collisionPointRect(other, this))
             {
-                this.parent.collide(other, new Vect(0, 0, 0));
-                other.parent.collide(this, new Vect(0, 0, 0));
+                this.parent.collide(other, new Vect(0, 0));
+                other.parent.collide(this, new Vect(0, 0));
             }
             break;
         case TYPE_COLL.RECT:
             if(collisionRectRect(this, other))
             {
-                this.parent.collide(other, new Vect(0, 0, 0));
-                other.parent.collide(this, new Vect(0, 0, 0));
+                this.parent.collide(other, new Vect(0, 0));
+                other.parent.collide(this, new Vect(0, 0));
             }
             break;
         case TYPE_COLL.CIRCLE:
             if(collisionRectCircle(this, other))
             {
-                this.parent.collide(other, new Vect(0, 0, 0));
-                other.parent.collide(this, new Vect(0, 0, 0));
+                this.parent.collide(other, new Vect(0, 0));
+                other.parent.collide(this, new Vect(0, 0));
             }
             break;
         case TYPE_COLL.TRI:
             if(collisionRectTri(this, other))
             {
-                this.parent.collide(other, new Vect(0, 0, 0));
-                other.parent.collide(this, new Vect(0, 0, 0));
+                this.parent.collide(other, new Vect(0, 0));
+                other.parent.collide(this, new Vect(0, 0));
             }
             break;
     }    

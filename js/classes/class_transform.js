@@ -29,7 +29,7 @@ Transform.prototype.rotate = function(angle)
 
 Transform.prototype.translate = function(x, y)
 {
-    this.pos.add(new Vect(x, y, 0));
+    this.pos.add(new Vect(x, y));
 }
 
 Transform.prototype.getMult = function(transform)
