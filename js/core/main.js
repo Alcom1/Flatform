@@ -38,6 +38,7 @@ game.main =
 		this.scenes.push(new Scene_0());
 		this.scenes.push(new Scene_1());
 		this.scenes.push(new Scene_2());
+		this.scenes.push(new Scene_3());
 		this.loadScene(0);
 		
 		// start the game loop
@@ -61,6 +62,15 @@ game.main =
 		
 		//Draw
 		this.draw(this.ctx);
+
+		// draw dt in bottom right corner
+		this.fillText(
+			"Use arrow keys to cycle scenes.",
+			2,
+			this.HEIGHT - 4,
+			"16pt Consolas",
+			"white",
+			false);
 		
 		//Draw debug info
 		if (this.debug)
@@ -74,7 +84,7 @@ game.main =
 				"white",
 				false);
 		}
-		
+
 		//KEYS
 		keys.refresh();
 	},

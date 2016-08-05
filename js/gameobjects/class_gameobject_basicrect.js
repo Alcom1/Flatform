@@ -3,12 +3,12 @@ var BasicRect = function(parent, pos, size)
 {
     GameObject.call(this, parent);
     
-    this.transform.pos = pos;
+    this.ltrans.pos = pos;
     this.size = size;
     this.color = "#0BF"
     this.collider = new ColliderPoint(
         this,
-        this.transform,
+        this.lTrans,
         1);
 }
 
@@ -24,7 +24,7 @@ BasicRect.prototype.update = function(dt, gTrans)
 BasicRect.prototype.draw = function(ctx)
 {
     ctx.save();
-        this.transform.setTransform(ctx);
+        ctx.setTransformG(this.gTrans);
         
         ctx.fillStyle = this.color;
         ctx.fillRect(

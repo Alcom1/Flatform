@@ -1,0 +1,42 @@
+//Test rect object
+var StretchRect = function(parent, pos)
+{
+    GameObject.call(this, parent);
+    
+    this.lTrans.pos = pos;
+    this.size = new Vect(1, 1);
+    this.color = "#AAA"
+    this.collider = new ColliderPoint(
+        this,
+        this.lTrans,
+        4);
+}
+
+StretchRect.prototype = Object.create(GameObject.prototype);
+
+//Game object update
+StretchRect.prototype.update = function(dt, gTrans)
+{
+    var mouseDiff = game.managerMouse.getPos().getSub(this.lTrans.pos);
+    this.lTrans.mat2 = new Mat2(mouseDiff.x, 0, 0, mouseDiff.y);
+
+    GameObject.prototype.update.call(this, dt, gTrans);
+}
+
+//Game object draw
+StretchRect.prototype.draw = function(ctx)
+{
+    ctx.save();
+        ctx.setTransformG(this.gTrans);
+        
+        //Draw rect
+        ctx.fillStyle = this.color;
+        ctx.fillRect(
+            -this.size.x,
+            -this.size.y,
+             this.size.x * 2,
+             this.size.y * 2);
+    ctx.restore();
+    
+    GameObject.prototype.draw.call(this, ctx);
+}
