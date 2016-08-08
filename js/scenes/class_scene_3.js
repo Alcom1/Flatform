@@ -11,6 +11,7 @@ Scene_3.prototype.init = function()
 {
     new MouseCircle(this, 5);
     new StretchRect(this, new Vect(320, 240));
+    
 }
 
 //Scene update

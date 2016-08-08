@@ -4,7 +4,7 @@ var StretchRect = function(parent, pos)
     GameObject.call(this, parent);
     
     this.lTrans.pos = pos;
-    this.size = new Vect(1, 1);
+    this.size = new Vect(0.8, 1);
     this.color = "#AAA"
     this.collider = new ColliderPoint(
         this,
@@ -18,7 +18,10 @@ StretchRect.prototype = Object.create(GameObject.prototype);
 StretchRect.prototype.update = function(dt, gTrans)
 {
     var mouseDiff = game.managerMouse.getPos().getSub(this.lTrans.pos);
-    this.lTrans.mat2 = new Mat2(mouseDiff.x, 0, 0, mouseDiff.y);
+    this.lTrans = new Transform(1, 0, 0, 1, 0, 0);
+    this.lTrans.mat2.rotateToFace(mouseDiff);
+    this.lTrans.scale(mouseDiff.getMagnitude(), mouseDiff.getMagnitude());
+    this.lTrans.translate(320, 240);
 
     GameObject.prototype.update.call(this, dt, gTrans);
 }

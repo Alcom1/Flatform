@@ -1,3 +1,4 @@
+//2x2 Matrix
 var Mat2 = function(a, b, c, d)
 {
     this.a = a;
@@ -6,6 +7,7 @@ var Mat2 = function(a, b, c, d)
     this.d = d;
 }
 
+//Matrix multiplication
 Mat2.prototype.mult = function(Mat2)
 {
     var a = this.a * Mat2.a + this.b * Mat2.c;
@@ -18,6 +20,7 @@ Mat2.prototype.mult = function(Mat2)
     this.d = d;
 }
 
+//Get matrix multiplication
 Mat2.prototype.getMult = function(mat2)
 {
     return new Mat2(
@@ -27,6 +30,7 @@ Mat2.prototype.getMult = function(mat2)
         this.c * mat2.b + this.d * mat2.d);
 }
 
+//Multiply matrix by vector. Returns a vector.
 Mat2.prototype.getMultVect = function(vect)
 {
     return new Vect(
@@ -34,6 +38,7 @@ Mat2.prototype.getMultVect = function(vect)
         this.c * vect.x + this.d * vect.y);
 }
 
+//Get the inverse of the matrix.
 Mat2.prototype.getInverse = function()
 {
     var invdet = 1 / (this.a * this.d - this.b * this.c);
@@ -44,6 +49,7 @@ Mat2.prototype.getInverse = function()
         invdet *  this.a);
 }
 
+//Scale the matrix.
 Mat2.prototype.scale = function(x, y)
 {
     var temp = new Mat2(
@@ -55,6 +61,7 @@ Mat2.prototype.scale = function(x, y)
     return temp;
 }
 
+//Rotate the matrix.
 Mat2.prototype.rotate = function(angle)
 {
     var temp = new Mat2(
@@ -64,4 +71,12 @@ Mat2.prototype.rotate = function(angle)
         Math.cos(angle));
     this.mult(temp);
     return temp;
+}
+
+//Rotate the matrix to face a given vector.
+Mat2.prototype.rotateToFace = function(target)
+{
+    this.rotate(
+        Math.atan2(-target.y, -target.x) - 
+        Math.atan2(-this.a, this.c));
 }

@@ -3,10 +3,10 @@ var BasicRect = function(parent, pos, size)
 {
     GameObject.call(this, parent);
     
-    this.ltrans.pos = pos;
+    this.lTrans.pos = pos;
     this.size = size;
     this.color = "#0BF"
-    this.collider = new ColliderPoint(
+    this.collider = new ColliderRect(
         this,
         this.lTrans,
         1);
