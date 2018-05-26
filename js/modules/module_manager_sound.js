@@ -1,8 +1,8 @@
-//Game object literal
-var game = game || {};
+//ff
+var ff = ff || {};
 
 //Module that plays and manages sounds.
-game.managerSound = (function()
+ff.managerSound = (function()
 {
     var pauserSoft; //Soft pauser for repeating sounds.
 	
@@ -65,5 +65,6 @@ game.managerSound = (function()
         playSound : playSound,
         pauseSoundSoft : pauseSoundSoft,
         pauseSoundHard : pauseSoundHard,
-	}
-}());
+    }
+    
+}(ff || {}));

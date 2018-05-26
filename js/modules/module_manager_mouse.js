@@ -1,8 +1,8 @@
-//Game object literal
-var game = game || {};
+//ff
+var ff = ff || {};
 
 //Module that plays and manages sounds.
-game.managerMouse = (function()
+ff.managerMouse = (function()
 {
     var mousePos; //Mouse position.
 	
@@ -29,5 +29,6 @@ game.managerMouse = (function()
 		init : init,
         update : update,
         getPos : getPos,
-	}
-}());
+    }
+    
+}(ff || {}));

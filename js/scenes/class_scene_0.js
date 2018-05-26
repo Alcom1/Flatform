@@ -11,7 +11,7 @@ Scene_0.prototype.init = function()
 {
     this.preloader["anim"] = loadJson("assets/animation_sample_2.json");
     this.preloader["anim2"] = loadJson("assets/animation_sample_3.json");
-
+    
     new MouseCircle(this, 25);
     this.gameObjects[0].children.push(
         new AnimatedRect(

@@ -1,8 +1,8 @@
-//Game object literal
-var game = game || {};
+//ff
+var ff = ff || {};
 
 //Module that plays and manages sounds.
-game.managerCollision = (function()
+ff.managerCollision = (function()
 {
     var colliders;	//Array of colliders
     
@@ -70,4 +70,5 @@ game.managerCollision = (function()
 		remove : remove,
 		clear : clear
 	}
-}());
+	
+}(ff || {}));

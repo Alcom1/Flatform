@@ -17,7 +17,7 @@ StretchRect.prototype = Object.create(GameObject.prototype);
 //Game object update
 StretchRect.prototype.update = function(dt, gTrans)
 {
-    var mouseDiff = game.managerMouse.getPos().getSub(this.lTrans.pos);
+    var mouseDiff = ff.managerMouse.getPos().getSub(this.lTrans.pos);
     this.lTrans = new Transform(1, 0, 0, 1, 0, 0);
     this.lTrans.mat2.rotateToFace(mouseDiff);
     this.lTrans.scale(mouseDiff.getMagnitude(), mouseDiff.getMagnitude());

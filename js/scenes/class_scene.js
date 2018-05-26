@@ -9,7 +9,7 @@ var Scene = function()
 //Init
 Scene.prototype.init = function()
 {
-
+	this.gameObjects.push(new GameObject({ parent : this }));
 }
 
 //Deinit
@@ -25,7 +25,7 @@ Scene.prototype.clear = function()
 	this.preloader = {};
 }
 
-//
+//Push Game Object
 Scene.prototype.pushGO = function(gameObject)
 {
 	this.gameObjects.push(gameObject);

@@ -29,7 +29,6 @@ function map(x, a, b, c, d)
 }
 
 //XMLHttpRequest methods
-
 function loadJson(fileName)
 {
     var xhr = new XMLHttpRequest();
@@ -37,6 +36,11 @@ function loadJson(fileName)
     xhr.open('GET', fileName, false);
     xhr.send();
     return JSON.parse(xhr.responseText);
+}
+
+function callObject(name, args)
+{
+    var what = new window[name](args);
 }
 
 //Set canvas transform based on a transformation

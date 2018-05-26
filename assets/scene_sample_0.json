@@ -1,0 +1,31 @@
+{
+    "gameObjects" : [
+        {
+            "class" : "MouseCircle",
+            "params" : {
+                "radius" : 25
+            },
+            "children" : [
+                {
+                    "class" : "AnimatedRect",
+                    "params" : {
+                        "size" : {"x" : 20, "y" : 20},
+                        "color" : "#0FF",
+                        "anim" : "assets/animation_sample_2.json"
+                    }
+                },
+        
+                {
+                    "class" : "AnimatedRect",
+                    "params" : {
+                        "size" : {"x" : 20, "y" : 20},
+                        "color" : "#0FF",
+                        "anim" : "assets/animation_sample_3.json"
+                    }
+                }
+            ]
+        }
+
+
+    ]
+}

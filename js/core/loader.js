@@ -1,16 +1,14 @@
-//Game object literal
-var game = game || {};
+//ff
+var ff = ff || {};
 
 //Load
 window.onload = function()
 {
-	console.log("window.onload called");
-    
     //Modules.
-	game.managerSound.init(0.4);
-	game.managerCollision.init();
-	game.managerMouse.init();
+	ff.managerSound.init(0.4);
+	ff.managerCollision.init();
+	ff.managerMouse.init();
 	
 	//Main
-	game.main.init();
+	ff.main.init();
 }

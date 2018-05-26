@@ -1,83 +1,73 @@
-// main.js
-"use strict";
-
-//Game object literal
-var game = game || {};
+//ff
+var ff = ff || {};
 
 //Main object literal
-game.main =
-{
-    WIDTH : 640, 				// Canvas width
-    HEIGHT : 480,				// Canvas height
-    canvas : undefined,			// Canvas
-    ctx : undefined,			// Canvas context
-   	lastTime : 0, 				// used by calculateDeltaTime() 
-    debug : true,				// debug
-	showCol : false,			// show collisions
-	animationID : 0,			// ID index of the current frame.
-	scenes : [],				// Array of scenes
-	scene : undefined,			// Current scene
-	indexS : -1,				// Index of the current scene
-	
-    //Initialization
-	init : function()
+ff.main = (function() {
+	var WIDTH = 640, 				// Canvas width
+		HEIGHT = 480,				// Canvas height
+		canvas = undefined,			// Canvas
+		ctx = undefined,			// Canvas context
+		lastTime = 0, 				// used by calculateDeltaTime() 
+		debug = true,				// debug
+		showCol = false,			// show collisions
+		animationID = 0,			// ID index of the current frame.
+		scene = new Scene(),		// Current scene
+		indexS = -1;				// Index of the current scene
+		
+	//Initialization
+	function init()
 	{
 		//Init log
 		console.log("app.main.init() called");
 		
 		// init canvas
-		this.canvas = document.querySelector('canvas');
-		this.canvas.width = this.WIDTH;
-		this.canvas.height = this.HEIGHT;
-		this.ctx = this.canvas.getContext('2d');
+		canvas = document.querySelector('canvas');
+		canvas.width = WIDTH;
+		canvas.height = HEIGHT;
+		ctx = canvas.getContext('2d');
 		
 		// canvas actions
-		this.canvas.onmousemove = this.doMousemove.bind(this)
-		
-		//Scenes
-		this.scenes.push(new Scene_0());
-		this.scenes.push(new Scene_1());
-		this.scenes.push(new Scene_2());
-		this.scenes.push(new Scene_3());
-		this.loadScene(0);
+		canvas.onmousemove = doMousemove.bind(this);
+
+		loadScene();
 		
 		// start the game loop
-		this.frame();
-	},
-	
+		frame();
+	};
+		
 	//Core update
-	frame : function()
+	function frame()
 	{
 		//LOOP
-	 	this.animationID = requestAnimationFrame(this.frame.bind(this));
-	 	
-	 	//Calculate Delta Time of frame
-	 	var dt = this.calculateDeltaTime();
+			animationID = requestAnimationFrame(frame.bind(this));
+			
+		//Calculate Delta Time of frame
+		var dt = calculateDeltaTime();
 		
 		//Clear
-		this.ctx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
+		ctx.clearRect(0, 0, WIDTH, HEIGHT);
 		
 		//Update
-		this.update(dt);
+		update(dt);
 		
 		//Draw
-		this.draw(this.ctx);
+		draw(ctx);
 
 		// draw dt in bottom right corner
-		this.fillText(
-			"Use arrow keys to cycle scenes.",
+		fillText(
+			"Use up & down arrow keys to cycle scenes.",
 			2,
-			this.HEIGHT - 4,
+			HEIGHT - 4,
 			"16pt Consolas",
 			"white",
 			false);
 		
 		//Draw debug info
-		if (this.debug)
+		if (debug)
 		{
 			// draw dt in bottom right corner
-			this.fillText(
-				"dt: " + (1 / dt).toFixed(1),
+			fillText(
+				"fps: " + (1 / dt).toFixed(1),
 				2,
 				16,
 				"16pt Consolas",
@@ -87,71 +77,77 @@ game.main =
 
 		//KEYS
 		keys.refresh();
-	},
-	
+	};
+		
 	//Update logic
-	update : function(dt)
+	function update(dt)
 	{
-		var sceneVal = this.scenes[this.indexS].update(dt);
+		scene.update(dt);
 		
-		if(sceneVal >= 0)
-		{
-			this.loadScene(sceneVal);
-		}
+		ff.managerCollision.update();
+		ff.managerSound.update(dt);
+	};
 		
-		game.managerCollision.update();
-		game.managerSound.update(dt);
-	},
-	
 	//Draw the main scene
-	draw : function(ctx)
+	function draw(ctx)
 	{
-		this.scenes[this.indexS].draw(ctx);
+		scene.draw(ctx);
 		
-		if(this.showCol)
-			game.managerCollision.draw(ctx);
-	},
-	
+		if(showCol)
+			ff.managerCollision.draw(ctx);
+	};
+		
 	//Load a scene
-	loadScene : function(index)
+	function loadScene()
 	{
-		if(this.indexS != -1)
-			this.scenes[this.indexS].deinit();
+		scene.deinit();
+
+		var newScene = loadJson("assets/scene_sample_0.json");
 		
-		this.indexS = index;
-		game.managerCollision.clear();
-		this.scenes[this.indexS].init();
-	},
-	
+		scene.init();
+
+		newScene.gameObjects.forEach(function(o) {
+			o.params = o.params || {};
+			o.params.parent = scene;	//Set scene to be passed in params as parent.
+			o.params.children = o.children || [];
+			callObject(o.class, o.params);
+		});
+	};
+		
 	//Mouse move tracking
-	doMousemove : function(e)
+	function doMousemove(e)
 	{
-		game.managerMouse.update(e);
-	},
-	
+		ff.managerMouse.update(e);
+	};
+		
 	//Draw filled text
-	fillText : function(string, x, y, css, color, centered)
+	function fillText(string, x, y, css, color, centered)
 	{
-		this.ctx.save();
+		ctx.save();
 		if(centered)
 		{
-			this.ctx.textAlign = "center";
-			this.ctx.textBaseline="middle"; 
+			ctx.textAlign = "center";
+			ctx.textBaseline="middle"; 
 		}
-		this.ctx.font = css;
-		this.ctx.fillStyle = color; 
-		this.ctx.fillText(string, x, y);
-		this.ctx.restore();
-	},
-	
+		ctx.font = css;
+		ctx.fillStyle = color; 
+		ctx.fillText(string, x, y);
+		ctx.restore();
+	};
+		
 	//Calculate delta-time
-	calculateDeltaTime : function()
+	function calculateDeltaTime()
 	{
 		var now, fps;
 		now = (+new Date); 
-		fps = 1000 / (now - this.lastTime);
+		fps = 1000 / (now - lastTime);
 		fps = clamp(fps, 12, 60);
-		this.lastTime = now; 
+		lastTime = now; 
 		return 1/fps;
-	},
-};
+	};
+
+	return {
+		init : init
+	}
+}());
+

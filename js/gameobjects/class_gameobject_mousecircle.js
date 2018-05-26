@@ -1,9 +1,9 @@
 //Test rect object
-var MouseCircle = function(parent, radius)
+var MouseCircle = function(args)
 {
-    GameObject.call(this, parent);
+    GameObject.call(this, args);
     
-    this.radius = radius;
+    this.radius = args.radius;
     this.color = "#FB0"
     this.zIndex = 10;
     this.collider = new ColliderCircle(
@@ -18,7 +18,7 @@ MouseCircle.prototype = Object.create(GameObject.prototype);
 //Game object update
 MouseCircle.prototype.update = function(dt, gTrans)
 {
-    this.lTrans.pos = game.managerMouse.getPos();
+    this.lTrans.pos = ff.managerMouse.getPos();
     
     this.color = "#FB0";
     

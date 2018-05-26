@@ -1,12 +1,21 @@
 //Base game object
-var GameObject = function(parent)
+var GameObject = function(args)
 {
 	this.lTrans = new Transform(1, 0, 0, 1, 0, 0);
 	this.gTrans = new Transform(1, 0, 0, 1, 0, 0);
 	this.zIndex = 0;
-    this.parent = parent;
+    this.parent = args.parent;
 	this.parent.pushGO(this);
-    this.children = [];
+	this.children = [];
+
+	self = this;
+	args.children = args.children || [];
+	args.children.forEach(function(o) {
+		o.params = o.params || {};
+		o.params.parent = self;
+		o.params.children = o.children || [];
+		callObject(o.class, o.params);
+	});
 }
 
 //Game object update

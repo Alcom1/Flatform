@@ -4,7 +4,7 @@ var Collider = function(parent, transform, type, mask)
     this.type = type;
     this.mask = mask;
     this.parent = parent;
-    game.managerCollision.add(this);
+    ff.managerCollision.add(this);
 }
 
 Collider.prototype.update = function()
@@ -26,5 +26,5 @@ Collider.prototype.checkCollision = function(other)
 //Remove
 Collider.prototype.remove = function()
 {
-    game.managerCollision.remove(this);
+    ff.managerCollision.remove(this);
 }
