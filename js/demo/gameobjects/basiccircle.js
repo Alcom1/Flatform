@@ -1,10 +1,10 @@
 //Test rect object
-var BasicCircle = function(parent, pos, radius) {
+var BasicCircle = function(args) {
 
-    GameObject.call(this, parent);
+    GameObject.call(this, args);
     
-    this.lTrans.pos = pos;
-    this.radius = radius;
+    this.lTrans.pos = new Vect(args.position.x, args.position.y);
+    this.radius = args.radius;
     this.color = "#0BF"
     this.collider = new ColliderCircle(
         this,

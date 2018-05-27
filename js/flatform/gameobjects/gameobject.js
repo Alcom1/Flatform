@@ -26,20 +26,23 @@ GameObject.prototype.update = function(dt, gTrans) {
     this.gTrans = gTrans.getMult(this.lTrans);
 }
 
+//Set a New Scene to load it
+GameObject.prototype.loadScene = function(newScene) {
+	this.parent.loadScene(newScene);
+}
+
 //Game object draw
 GameObject.prototype.draw = function(ctx) {
 	
 }
 
 //
-GameObject.prototype.pushGO = function(gameObject)
-{
+GameObject.prototype.pushGO = function(gameObject) {
 	this.parent.pushGO(gameObject);
 }
 
 //Game object collision
-GameObject.prototype.collide = function(other, pos)
-{
+GameObject.prototype.collide = function(other, pos) {
 	
 }
 

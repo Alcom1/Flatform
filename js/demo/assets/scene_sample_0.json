@@ -1,6 +1,13 @@
 {
     "gameObjects" : [
         {
+            "class" : "SceneSwitcher",
+            "params" : 
+            {
+                "nextScene" : "js/demo/assets/scene_sample_1.json"
+            }
+        },
+        {
             "class" : "MouseCircle",
             "params" : 
             {

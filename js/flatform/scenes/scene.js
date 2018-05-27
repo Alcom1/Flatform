@@ -4,18 +4,13 @@ var Scene = function() {
 	this.gTrans = new Transform(1, 0, 0, 1, 0, 0);
 	this.gameObjects = [];
 	this.preloader = {};
+	this.newScene = "";
 }
 
 //Init
 Scene.prototype.init = function() {
 	
 	this.gameObjects.push(new GameObject({ parent : this }));
-}
-
-//Deinit
-Scene.prototype.deinit = function() {
-	
-	this.clear();
 }
 
 //Clear
@@ -30,6 +25,7 @@ Scene.prototype.pushGO = function(gameObject) {
 	
 	this.gameObjects.push(gameObject);
 	
+	//Sort game objects by z-index.
 	this.gameObjects.sort(
 		function(a, b) {
 	
@@ -38,6 +34,11 @@ Scene.prototype.pushGO = function(gameObject) {
 			
 			return a.zIndex > b.zIndex;
 		});
+}
+
+//Set a New Scene to load it
+Scene.prototype.loadScene = function(newScene) {
+	this.newScene = newScene;
 }
 
 //Scene update

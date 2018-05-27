@@ -40,13 +40,19 @@ ff.main = (function() {
 	function frame() {
 		
 		//LOOP
-			animationID = requestAnimationFrame(frame.bind(this));
+		animationID = requestAnimationFrame(frame.bind(this));
 			
 		//Calculate Delta Time of frame
 		var dt = calculateDeltaTime();
 		
 		//Clear
 		ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
+		//Check for and load new scene
+		if(scene.newScene) {
+			loadScene(scene.newScene);
+			scene.newScene = "";
+		}
 		
 		//Update
 		update(dt);
@@ -102,10 +108,10 @@ ff.main = (function() {
 	//Load a scene
 	function loadScene(sceneName) {
 		
-		scene.deinit();
-
 		var newScene = loadJson(sceneName);
 		
+		scene.clear();
+		ff.managerCollision.clear();
 		scene.init();
 
 		newScene.gameObjects.forEach(function(o) {
@@ -143,7 +149,7 @@ ff.main = (function() {
 		var now, fps;
 		now = (+new Date); 
 		fps = 1000 / (now - lastTime);
-		fps = clamp(fps, 12, 60);
+		fps = clamp(fps, 12, 240);
 		lastTime = now; 
 		return 1/fps;
 	};

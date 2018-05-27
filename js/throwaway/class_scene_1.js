@@ -13,7 +13,6 @@ Scene_1.prototype.init = function() {
     new BasicCircle(this, new Vect(260, 280), 20);
     new BasicCircle(this, new Vect(360, 220), 20);
     new BasicCircle(this, new Vect(420, 320), 20);
-    new BasicPoint(this, new Vect(220, 120));
 }
 
 //Scene update

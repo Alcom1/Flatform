@@ -1,0 +1,42 @@
+{
+    "gameObjects" : [
+        {
+            "class" : "SceneSwitcher",
+            "params" : 
+            {
+                "prevScene" : "js/demo/assets/scene_sample_0.json"
+            }
+        },
+        {
+            "class" : "MouseCircle",
+            "params" : 
+            {
+                "radius" : 25
+            }
+        },
+        {
+            "class" : "BasicCircle",
+            "params" : 
+            {
+                "position" : {"x" : 260, "y" : 280},
+                "radius" : 20
+            }
+        },
+        {
+            "class" : "BasicCircle",
+            "params" : 
+            {
+                "position" : {"x" : 360, "y" : 220},
+                "radius" : 20
+            }
+        },
+        {
+            "class" : "BasicCircle",
+            "params" : 
+            {
+                "position" : {"x" : 420, "y" : 320},
+                "radius" : 20
+            }
+        }
+    ]
+}

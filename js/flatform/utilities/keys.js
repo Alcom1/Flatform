@@ -147,8 +147,7 @@ var keys = {
 	},
 	
 	isPressed : function(key) {
-
-		console.log(key);
+		
 		key = this.setCompatible(key);
 		return keys.states[key] == this.STATE.PRESSED;
 	},
