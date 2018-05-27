@@ -1,14 +1,14 @@
 //Scene
-var Scene_0 = function()
-{
+var Scene_0 = function() {
+
 	Scene.call(this);
 }
 
 Scene_0.prototype = Object.create(Scene.prototype);
 
 //Init
-Scene_0.prototype.init = function()
-{
+Scene_0.prototype.init = function() {
+
     this.preloader["anim"] = loadJson("assets/animation_sample_2.json");
     this.preloader["anim2"] = loadJson("assets/animation_sample_3.json");
     
@@ -28,8 +28,8 @@ Scene_0.prototype.init = function()
 }
 
 //Scene update
-Scene_0.prototype.update = function(dt)
-{
+Scene_0.prototype.update = function(dt) {
+    
     Scene.prototype.update.call(this, dt);
     
     if(keys.isReleased(keys.KEYBOARD.UP))

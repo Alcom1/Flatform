@@ -1,8 +1,8 @@
 //Global functions and enumerations
 
 // returns mouse position in local coordinate system of element
-function getMouse(e)
-{
+function getMouse(e) {
+
 	var mouse = new Vect(
 		e.pageX - e.target.offsetLeft,
 		e.pageY - e.target.offsetTop,
@@ -11,26 +11,26 @@ function getMouse(e)
 }
 
 //constrained between min and max (inclusive)
-function clamp(val, min, max)
-{
+function clamp(val, min, max) {
+
 	return Math.max(min, Math.min(max, val));
 }
 
 //Modified mod for negative numbers.
-Number.prototype.mod = function(n)
-{
+Number.prototype.mod = function(n) {
+
 	return ((this % n) + n) % n;
 }
 
 //Maps x within range a-b to range c-d
-function map(x, a, b, c, d)
-{
+function map(x, a, b, c, d) {
+
     return (x - a) / (b - a) * (d - c) + c;
 }
 
 //XMLHttpRequest methods
-function loadJson(fileName)
-{
+function loadJson(fileName) {
+
     var xhr = new XMLHttpRequest();
     xhr.overrideMimeType("application/json");
     xhr.open('GET', fileName, false);
@@ -38,14 +38,14 @@ function loadJson(fileName)
     return JSON.parse(xhr.responseText);
 }
 
-function callObject(name, args)
-{
+function callObject(name, args) {
+
     var what = new window[name](args);
 }
 
 //Set canvas transform based on a transformation
-CanvasRenderingContext2D.prototype.setTransformG = function(trans)
-{
+CanvasRenderingContext2D.prototype.setTransformG = function(trans) {
+
     this.setTransform(
         trans.mat2.a,
         trans.mat2.c,
@@ -56,8 +56,8 @@ CanvasRenderingContext2D.prototype.setTransformG = function(trans)
 }
 
 //Canvas rounded rectangle.
-CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r, d)
-{
+CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r, d) {
+
     if (w < 2 * r)
         r = w / 2;
     if (h < 2 * r)
@@ -76,8 +76,8 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r, d)
 }
 
 //Canvas point
-CanvasRenderingContext2D.prototype.point = function (x, y)
-{
+CanvasRenderingContext2D.prototype.point = function (x, y) {
+
     this.save();
     this.fillStyle = this.strokeStyle;
     this.beginPath();
@@ -92,8 +92,8 @@ CanvasRenderingContext2D.prototype.point = function (x, y)
 }
 
 //Collisions (Point, Rect, Circle, Tri)
-function collisionPointRect(point, rect)
-{
+function collisionPointRect(point, rect) {
+
     var inverseMat2 = rect.transform.mat2.getInverse();
     var pointRel = inverseMat2.getMultVect(point.transform.pos.getSub(rect.transform.pos));
     
@@ -109,45 +109,45 @@ function collisionPointRect(point, rect)
     }
 }
 
-function collisionPointCircle(point, circle)
-{
+function collisionPointCircle(point, circle) {
+
     return circle.radius * circle.radius >
         point.transform.pos.getSub(circle.transform.pos).getMagnitudeSquared() 
 }
 
-function collisionPointTri(point, tri)
-{
+function collisionPointTri(point, tri) {
+
     return false;
 }
 
-function collisionRectRect(rectA, rectB)
-{
+function collisionRectRect(rectA, rectB) {
+
     return false;
 }
 
-function collisionRectCircle(rect, circle)
-{
+function collisionRectCircle(rect, circle) {
+
     return false;
 }
 
-function collisionRectTri(rect, tri)
-{
+function collisionRectTri(rect, tri) {
+
     return false;
 }
 
-function collisionCircleCircle(circleA, circleB)
-{
+function collisionCircleCircle(circleA, circleB) {
+
     return (circleA.radius + circleB.radius) * (circleA.radius + circleB.radius) >
         circleA.transform.pos.getSub(circleB.transform.pos).getMagnitudeSquared();
 }
 
-function collisionCircleTri(circle, tri)
-{
+function collisionCircleTri(circle, tri) {
+
     return false;
 }
 
-function collisionTriTri(triA, triB)
-{
+function collisionTriTri(triA, triB) {
+    
     return false;
 }
 

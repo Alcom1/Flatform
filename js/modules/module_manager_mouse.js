@@ -2,8 +2,8 @@
 var ff = ff || {};
 
 //Module that plays and manages sounds.
-ff.managerMouse = (function()
-{
+ff.managerMouse = (function() {
+
     var mousePos; //Mouse position.
 	
 	//Init
@@ -31,4 +31,4 @@ ff.managerMouse = (function()
         getPos : getPos,
     }
     
-}(ff || {}));
+}());

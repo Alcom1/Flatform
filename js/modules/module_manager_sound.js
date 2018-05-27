@@ -67,4 +67,4 @@ ff.managerSound = (function()
         pauseSoundHard : pauseSoundHard,
     }
     
-}(ff || {}));
+}());

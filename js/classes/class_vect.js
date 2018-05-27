@@ -1,19 +1,16 @@
 //Vector constructor
 //Choice 0 takes x and y
 //Choice 1 takes angle and magnitude
-var Vect = function(a, b, choice)
-{
-	if(choice == null)
-	{
-		choice = 0;
-	}
-	switch(choice)
-	{
-		case 0: // Cartesian
+var Vect = function(a, b, choice) {
+
+	choice = choice || TYPE_VECT.CARTESIAN;
+
+	switch(choice) {
+		case TYPE_VECT.CARTESIAN:
 			this.x = a;
 			this.y = b;
 			break;
-		case 1: // Polar
+		case TYPE_VECT.POLAR:
 			this.x = Math.sin(a) * b;
 			this.y = Math.cos(a) * b;
 			break;
@@ -21,86 +18,86 @@ var Vect = function(a, b, choice)
 }
 
 //Returns this vector
-Vect.prototype.get = function()
-{
+Vect.prototype.get = function() {
+
 	return new Vect(this.x, this.y, 0);
 }
 
 //Vector addition
-Vect.prototype.add = function(vect)
-{
+Vect.prototype.add = function(vect) {
+
 	this.x += vect.x;
 	this.y += vect.y;
 }
 
 //Vect get addition result
-Vect.prototype.getAdd = function(vect)
-{
+Vect.prototype.getAdd = function(vect) {
+
 	return new Vect(
 		this.x + vect.x,
 		this.y + vect.y);
 }
 
 //Vector subtraction
-Vect.prototype.sub = function(vect)
-{
+Vect.prototype.sub = function(vect) {
+
 	this.x -= vect.x;
 	this.y -= vect.y;
 }
 
 //Vect get subtraction result
-Vect.prototype.getSub = function(vect)
-{
+Vect.prototype.getSub = function(vect) {
+
 	return new Vect(
 		this.x - vect.x,
 		this.y - vect.y);
 }
 
 //Vector multiplication
-Vect.prototype.mult = function(value)
-{
+Vect.prototype.mult = function(value) {
+
 	this.x *= value;
 	this.y *= value;
 }
 
 //Vect get multiplication result
-Vect.prototype.getMult = function(value)
-{
+Vect.prototype.getMult = function(value) {
+
 	return new Vect(
 		this.x * value,
 		this.y * value);
 }
 
 //Vector division
-Vect.prototype.div = function(value)
-{
+Vect.prototype.div = function(value) {
+
 	this.x /= value;
 	this.y /= value;
 }
 
 //Vect get division result
-Vect.prototype.getDiv = function(value)
-{
+Vect.prototype.getDiv = function(value) {
+
 	return new Vect(
 		this.x / value,
 		this.y / value);
 }
 
 //Return dot product with another vector
-Vect.prototype.getDot = function(value)
-{
+Vect.prototype.getDot = function(value) {
+
 	return this.x * value.x + this.y * value.y;
 }
 
 //Return cross product with another vector
-Vect.prototype.getCross = function(value)
-{
+Vect.prototype.getCross = function(value) {
+
 	return this.x * value.y - this.y * value.x;
 }
 
 //Vector normalization
-Vect.prototype.norm = function()
-{
+Vect.prototype.norm = function() {
+
 	var length = Math.sqrt(
 		this.x * this.x + 
 		this.y * this.y);
@@ -109,8 +106,8 @@ Vect.prototype.norm = function()
 }
 
 //Vector get normalization result
-Vect.prototype.getNorm = function()
-{
+Vect.prototype.getNorm = function() {
+
 	var length = Math.sqrt(
 		this.x * this.x + 
 		this.y * this.y);
@@ -120,13 +117,18 @@ Vect.prototype.getNorm = function()
 }
 
 //Get magnitude of the vector.
-Vect.prototype.getMagnitude = function()
-{
+Vect.prototype.getMagnitude = function() {
+
 	return Math.sqrt(this.x * this.x + this.y * this.y);
 }
 
 //Vector length squared
-Vect.prototype.getMagnitudeSquared = function()
-{
+Vect.prototype.getMagnitudeSquared = function() {
+
 	return this.x * this.x + this.y * this.y;
 }
+
+//ENUM
+TYPE_VECT = Object.freeze({
+    CARTESIAN: 1,
+    POLAR: 2});

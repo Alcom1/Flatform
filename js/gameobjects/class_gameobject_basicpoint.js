@@ -1,6 +1,6 @@
 //Test rect object
-var BasicPoint = function(parent, pos)
-{
+var BasicPoint = function(parent, pos) {
+
     GameObject.call(this, parent);
     
     this.lTrans.pos = pos;
@@ -14,14 +14,14 @@ var BasicPoint = function(parent, pos)
 BasicPoint.prototype = Object.create(GameObject.prototype);
 
 //Game object update
-BasicPoint.prototype.update = function(dt, gTrans)
-{
+BasicPoint.prototype.update = function(dt, gTrans) {
+
     GameObject.prototype.update.call(this, dt, gTrans);
 }
 
 //Game object draw
-BasicPoint.prototype.draw = function(ctx)
-{
+BasicPoint.prototype.draw = function(ctx) {
+    
     ctx.save();
         ctx.setTransformG(this.gTrans);
         

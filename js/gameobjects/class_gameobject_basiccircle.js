@@ -1,6 +1,6 @@
 //Test rect object
-var BasicCircle = function(parent, pos, radius)
-{
+var BasicCircle = function(parent, pos, radius) {
+
     GameObject.call(this, parent);
     
     this.lTrans.pos = pos;
@@ -16,14 +16,14 @@ var BasicCircle = function(parent, pos, radius)
 BasicCircle.prototype = Object.create(GameObject.prototype);
 
 //Game object update
-BasicCircle.prototype.update = function(dt, gTrans)
-{
+BasicCircle.prototype.update = function(dt, gTrans) {
+
     GameObject.prototype.update.call(this, dt, gTrans);
 }
 
 //Game object draw
-BasicCircle.prototype.draw = function(ctx)
-{
+BasicCircle.prototype.draw = function(ctx) {
+    
     ctx.save();
         ctx.setTransformG(this.gTrans);
         

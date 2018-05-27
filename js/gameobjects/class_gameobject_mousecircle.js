@@ -1,6 +1,6 @@
 //Test rect object
-var MouseCircle = function(args)
-{
+var MouseCircle = function(args) {
+
     GameObject.call(this, args);
     
     this.radius = args.radius;
@@ -16,8 +16,8 @@ var MouseCircle = function(args)
 MouseCircle.prototype = Object.create(GameObject.prototype);
 
 //Game object update
-MouseCircle.prototype.update = function(dt, gTrans)
-{
+MouseCircle.prototype.update = function(dt, gTrans) {
+
     this.lTrans.pos = ff.managerMouse.getPos();
     
     this.color = "#FB0";
@@ -26,8 +26,8 @@ MouseCircle.prototype.update = function(dt, gTrans)
 }
 
 //Game object draw
-MouseCircle.prototype.draw = function(ctx)
-{
+MouseCircle.prototype.draw = function(ctx) {
+
     ctx.save();
         ctx.setTransformG(this.gTrans);
         
@@ -46,7 +46,7 @@ MouseCircle.prototype.draw = function(ctx)
 }
 
 //Game object collision
-MouseCircle.prototype.collide = function(other, pos)
-{
+MouseCircle.prototype.collide = function(other, pos) {
+    
     this.color = "#FFF";
 }

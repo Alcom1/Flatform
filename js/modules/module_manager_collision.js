@@ -2,25 +2,25 @@
 var ff = ff || {};
 
 //Module that plays and manages sounds.
-ff.managerCollision = (function()
-{
+ff.managerCollision = (function() {
+
     var colliders;	//Array of colliders
     
 	//Init
-	function init()
-	{
+	function init() {
+
 		colliders = [];
 	}
 	
 	//Update
-	function update()
-	{
-		for(var j = 0; j < colliders.length; j++)
-		{
+	function update() {
+
+		for(var j = 0; j < colliders.length; j++) {
+
 			colliders[j].update();
 			
-			for(i = 0; i < j; i++)
-			{
+			for(i = 0; i < j; i++) {
+
 				if(colliders[i].mask & colliders[j].mask)
 					colliders[j].checkCollision(colliders[i]);
 			}
@@ -28,27 +28,27 @@ ff.managerCollision = (function()
 	}
 	
 	//Draw
-	function draw(ctx)
-	{
-		for(i = 0; i < colliders.length; i++)
-		{
+	function draw(ctx) {
+
+		for(i = 0; i < colliders.length; i++) {
+
 			colliders[i].draw(ctx);
 		}
 	}
 	
 	//
-	function add(collider)
-	{
+	function add(collider) {
+
 		colliders.push(collider);
 	}
 	
 	//
-	function remove(target)
-	{
-		for(i = 0; i < colliders.length; i++)
-		{
-			if(colliders[i] == target)
-			{
+	function remove(target) {
+
+		for(i = 0; i < colliders.length; i++) {
+
+			if(colliders[i] == target) {
+
 				colliders.splice(i, 1);
 				break;
 			}
@@ -56,8 +56,8 @@ ff.managerCollision = (function()
 	}
     
 	//
-	function clear()
-	{
+	function clear() {
+
 		colliders = [];
 	}
 	
@@ -71,4 +71,4 @@ ff.managerCollision = (function()
 		clear : clear
 	}
 	
-}(ff || {}));
+}());

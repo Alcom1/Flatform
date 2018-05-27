@@ -1,6 +1,6 @@
 //Base game object
-var GameObject = function(args)
-{
+var GameObject = function(args) {
+
 	this.lTrans = new Transform(1, 0, 0, 1, 0, 0);
 	this.gTrans = new Transform(1, 0, 0, 1, 0, 0);
 	this.zIndex = 0;
@@ -19,29 +19,16 @@ var GameObject = function(args)
 }
 
 //Game object update
-GameObject.prototype.update = function(dt, gTrans)
-{
+GameObject.prototype.update = function(dt, gTrans) {
+
 	gTrans = this.parent.gTrans;
 
     this.gTrans = gTrans.getMult(this.lTrans);
 }
 
 //Game object draw
-GameObject.prototype.draw = function(ctx)
-{
+GameObject.prototype.draw = function(ctx) {
 	
-}
-
-//
-GameObject.prototype.stack = function()
-{
-	arr = [this];
-	
-	for(var i = 0; i < this.children.length; i++)
-	{
-		arr = arr.concat(this.children[i].stack());
-	}
-	return arr;
 }
 
 //

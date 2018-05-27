@@ -1,8 +1,8 @@
 //Key handler
 
 //OL with key arrays and methods.
-var keys =
-{
+var keys = {
+
 	//Array of key states
 	//0 == up
 	//1 == pressed
@@ -11,8 +11,7 @@ var keys =
 	states : [],
 	
 	//Keys refered to by name
-	KEYBOARD : Object.freeze
-	({
+	KEYBOARD : Object.freeze ({
 		"BACKSPACE" : 8,
 		"TAB" : 9,
 		"ENTER" : 13,
@@ -120,8 +119,8 @@ var keys =
 	}),
 	
 	//Key states
-	STATE : Object.freeze
-	({
+	STATE : Object.freeze ({
+
 		"UP" : 0,
 		"PRESSED" : 1,
 		"DOWN" : 2,
@@ -129,10 +128,10 @@ var keys =
 	}),
 	
 	//Refreshes pressed and released states to down and up
-	refresh : function()
-	{
-		for(var i = 0; i < this.states.length; i++)
-		{
+	refresh : function() {
+
+		for(var i = 0; i < this.states.length; i++) {
+
 			if(this.states[i] == this.STATE.PRESSED)   //Pressed to down
 				this.states[i] = this.STATE.DOWN;
 			if(this.states[i] == this.STATE.RELEASED)   //Released to up
@@ -141,34 +140,34 @@ var keys =
 	},
 	
 	//key state queries
-	isUp : function(key)
-	{
+	isUp : function(key) {
+
 		key = this.setCompatible(key);
 		return !keys.states[key];
 	},
 	
-	isPressed : function(key)
-	{
+	isPressed : function(key) {
+
 		console.log(key);
 		key = this.setCompatible(key);
 		return keys.states[key] == this.STATE.PRESSED;
 	},
 	
-	isDown : function(key)
-	{
+	isDown : function(key) {
+
 		key = this.setCompatible(key);
 		return keys.states[key] == this.STATE.DOWN;
 	},
 	
-	isReleased : function(key)
-	{
+	isReleased : function(key) {
+
 		key = this.setCompatible(key);
 		return keys.states[key] == this.STATE.RELEASED;
 	},
 	
 	//Performs compatibility fix between browsers for key values.
-	setCompatible(key)
-	{
+	setCompatible(key) {
+
 		if(key == 59)   //FF Semicolon
 			key = 186;
 		
@@ -185,8 +184,8 @@ var keys =
 //Set that key is down to keys
 window.addEventListener(
 	"keydown",
-	function(e)
-	{
+	function(e) {
+
 		if(!keys.states[e.keyCode])
 			keys.states[e.keyCode] = 1;
 	});
@@ -194,7 +193,7 @@ window.addEventListener(
 //Set that key is up to keys
 window.addEventListener(
 	"keyup",
-	function(e)
-	{
+	function(e) {
+		
 		keys.states[e.keyCode] = 3;
 	});

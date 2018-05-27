@@ -1,6 +1,6 @@
 //Animation constructor
-var Animation = function(anim)
-{
+var Animation = function(anim) {
+
     this.length = anim.length;          //Duration of animation in milliseconds
     this.rotate = anim.rotate;          //Rotation transformation keyframes array.
     this.scale = anim.scale;            //Scaling transformation keyframes array.
@@ -9,14 +9,14 @@ var Animation = function(anim)
 }
 
 //Update
-Animation.prototype.update = function(dt)
-{
+Animation.prototype.update = function(dt) {
+
     this.time += dt;    //Increment time.
 }
 
 //Draw
-Animation.prototype.transform = function()
-{
+Animation.prototype.transform = function() {
+
     var step = (this.time * 1000) % this.length;    //Time in the current loop
     
     var transform = new Transform(1, 0, 0, 1, 0, 0);
@@ -31,19 +31,18 @@ Animation.prototype.transform = function()
 //Perform a partial transformation based on its type
 Animation.prototype.transformPartial = function(
     trans,
-    step, //Time in the current loop
-    form, //Which transform to use
-    type) //Type of transform
-{
+    step,   //Time in the current loop
+    form,   //Which transform to use
+    type) { //Type of transform
+
     //For each timestamp in the animation
-    for(var i = 0; i < form.length - 1; i++)
-    {
+    for(var i = 0; i < form.length - 1; i++) {
+        
         //If the animation is currently between that timestamp and the next, transform
-        if(step > form[i].time && step < form[i + 1].time)
-        {
+        if(step > form[i].time && step < form[i + 1].time) {
             //Translation, scale, or rotation
-            switch(type)
-            {
+            switch(type) {
+
                 case TYPE_ANIM.TRANSLATE:
                     trans.translate(
                         map(

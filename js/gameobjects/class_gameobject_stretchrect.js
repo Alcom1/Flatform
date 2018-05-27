@@ -1,6 +1,6 @@
 //Test rect object
-var StretchRect = function(parent, pos)
-{
+var StretchRect = function(parent, pos) {
+
     GameObject.call(this, parent);
     
     this.lTrans.pos = pos;
@@ -15,8 +15,8 @@ var StretchRect = function(parent, pos)
 StretchRect.prototype = Object.create(GameObject.prototype);
 
 //Game object update
-StretchRect.prototype.update = function(dt, gTrans)
-{
+StretchRect.prototype.update = function(dt, gTrans) {
+
     var mouseDiff = ff.managerMouse.getPos().getSub(this.lTrans.pos);
     this.lTrans = new Transform(1, 0, 0, 1, 0, 0);
     this.lTrans.mat2.rotateToFace(mouseDiff);
@@ -27,8 +27,8 @@ StretchRect.prototype.update = function(dt, gTrans)
 }
 
 //Game object draw
-StretchRect.prototype.draw = function(ctx)
-{
+StretchRect.prototype.draw = function(ctx) {
+    
     ctx.save();
         ctx.setTransformG(this.gTrans);
         

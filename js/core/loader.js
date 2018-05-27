@@ -1,9 +1,6 @@
-//ff
-var ff = ff || {};
-
 //Load
-window.onload = function()
-{
+window.onload = function() {
+
     //Modules.
 	ff.managerSound.init(0.4);
 	ff.managerCollision.init();

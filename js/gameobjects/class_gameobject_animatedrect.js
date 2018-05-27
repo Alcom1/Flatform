@@ -1,6 +1,6 @@
 //Test animated rect object
-var AnimatedRect = function(args)
-{
+var AnimatedRect = function(args) {
+    
     GameObject.call(this, args);
     
     this.animation = new Animation(loadJson(args.anim));
