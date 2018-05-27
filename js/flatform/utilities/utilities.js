@@ -55,26 +55,6 @@ CanvasRenderingContext2D.prototype.setTransformG = function(trans) {
         trans.pos.y);    
 }
 
-//Canvas rounded rectangle.
-CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r, d) {
-
-    if (w < 2 * r)
-        r = w / 2;
-    if (h < 2 * r)
-        r = h / 2;
-    this.beginPath();
-    this.moveTo(x + r, y);
-    this.arcTo(x + w, y,     x + w, y + h, r);
-    this.arcTo(x + w, y + h,     x, y + h, r);
-    this.arcTo(x,     y + h,     x, y,     r);
-    this.lineTo(x, y + 10 + d);
-    this.lineTo(x - 12, y + 5 + d);
-    this.lineTo(x, y + d);
-    this.arcTo(x,   y,   x+w, y,   r);
-    this.closePath();
-    return this;
-}
-
 //Canvas point
 CanvasRenderingContext2D.prototype.point = function (x, y) {
 
@@ -99,12 +79,10 @@ function collisionPointRect(point, rect) {
     
     if(
         Math.abs(pointRel.x) < rect.size.x &&
-        Math.abs(pointRel.y) < rect.size.y)
-    {
+        Math.abs(pointRel.y) < rect.size.y) {
         return true;
     }
-    else
-    {
+    else {
         return false;
     }
 }
@@ -117,22 +95,22 @@ function collisionPointCircle(point, circle) {
 
 function collisionPointTri(point, tri) {
 
-    return false;
+    return false;   //TODO: implement collision logic.
 }
 
 function collisionRectRect(rectA, rectB) {
 
-    return false;
+    return false;   //TODO: implement collision logic.
 }
 
 function collisionRectCircle(rect, circle) {
 
-    return false;
+    return false;   //TODO: implement collision logic.
 }
 
 function collisionRectTri(rect, tri) {
 
-    return false;
+    return false;   //TODO: implement collision logic.
 }
 
 function collisionCircleCircle(circleA, circleB) {
@@ -143,12 +121,12 @@ function collisionCircleCircle(circleA, circleB) {
 
 function collisionCircleTri(circle, tri) {
 
-    return false;
+    return false;   //TODO: implement collision logic.
 }
 
 function collisionTriTri(triA, triB) {
     
-    return false;
+    return false;   //TODO: implement collision logic.
 }
 
 //Enums

@@ -3,8 +3,8 @@ var ff = ff || {};
 
 //Main object literal
 ff.main = (function() {
-	var WIDTH = 640, 				// Canvas width
-		HEIGHT = 480,				// Canvas height
+	var WIDTH = 640, 				// Canvas width (set to default)
+		HEIGHT = 480,				// Canvas height (set to default)
 		canvas = undefined,			// Canvas
 		ctx = undefined,			// Canvas context
 		lastTime = 0, 				// used by calculateDeltaTime() 
@@ -15,29 +15,30 @@ ff.main = (function() {
 		indexS = -1;				// Index of the current scene
 		
 	//Initialization
-	function init()
-	{
+	function init(element, sceneName, width, height) {
+
 		//Init log
 		console.log("app.main.init() called");
 		
 		// init canvas
-		canvas = document.querySelector('canvas');
-		canvas.width = WIDTH;
-		canvas.height = HEIGHT;
+		canvas = element;
+		canvas.width = width || WIDTH;
+		canvas.height = height || HEIGHT;
 		ctx = canvas.getContext('2d');
 		
 		// canvas actions
 		canvas.onmousemove = doMousemove.bind(this);
 
-		loadScene();
+		// load the first scene
+		loadScene(sceneName);
 		
 		// start the game loop
 		frame();
 	};
 		
 	//Core update
-	function frame()
-	{
+	function frame() {
+		
 		//LOOP
 			animationID = requestAnimationFrame(frame.bind(this));
 			
@@ -80,8 +81,8 @@ ff.main = (function() {
 	};
 		
 	//Update logic
-	function update(dt)
-	{
+	function update(dt) {
+		
 		scene.update(dt);
 		
 		ff.managerCollision.update();
@@ -89,20 +90,21 @@ ff.main = (function() {
 	};
 		
 	//Draw the main scene
-	function draw(ctx)
-	{
+	function draw(ctx) {
+		
 		scene.draw(ctx);
 		
-		if(showCol)
+		if(showCol) {
 			ff.managerCollision.draw(ctx);
+		}
 	};
 		
 	//Load a scene
-	function loadScene()
-	{
+	function loadScene(sceneName) {
+		
 		scene.deinit();
 
-		var newScene = loadJson("assets/scene_sample_0.json");
+		var newScene = loadJson(sceneName);
 		
 		scene.init();
 
@@ -115,19 +117,19 @@ ff.main = (function() {
 	};
 		
 	//Mouse move tracking
-	function doMousemove(e)
-	{
+	function doMousemove(e) {
+		
 		ff.managerMouse.update(e);
 	};
 		
 	//Draw filled text
-	function fillText(string, x, y, css, color, centered)
-	{
+	function fillText(string, x, y, css, color, centered) {
+		
 		ctx.save();
 		if(centered)
 		{
 			ctx.textAlign = "center";
-			ctx.textBaseline="middle"; 
+			ctx.textBaseline = "middle"; 
 		}
 		ctx.font = css;
 		ctx.fillStyle = color; 
@@ -136,8 +138,8 @@ ff.main = (function() {
 	};
 		
 	//Calculate delta-time
-	function calculateDeltaTime()
-	{
+	function calculateDeltaTime() {
+		
 		var now, fps;
 		now = (+new Date); 
 		fps = 1000 / (now - lastTime);

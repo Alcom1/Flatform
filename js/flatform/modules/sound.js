@@ -4,13 +4,14 @@ var ff = ff || {};
 //Module that plays and manages sounds.
 ff.managerSound = (function()
 {
-    var pauserSoft; //Soft pauser for repeating sounds.
+    //Soft pauser for repeating sounds. Helps to pause repeating sounds within a preset interval of quiet moments.
+    var pauserSoft; 
 	
 	//Init
-	function init(volume)
+	function init(element, volume)
 	{
         //Set global volume.
-        var sounds = document.querySelector("#audio").children;
+        var sounds = element.children;
         for(var i = 0; i < sounds.length; i++)
         {
             sounds[i].volume = volume;
