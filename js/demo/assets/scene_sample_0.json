@@ -1,37 +1,26 @@
 {
     "gameObjects" : [
         {
-            "class" : "SceneSwitcher",
+            "name" : "SceneSwitcher",
             "params" : 
             {
                 "nextScene" : "js/demo/assets/scene_sample_1.json"
             }
         },
         {
-            "class" : "MouseCircle",
+            "name" : "MouseCircle",
             "params" : 
             {
-                "radius" : 25
-            },
-            "children" : [
-                {
-                    "class" : "AnimatedRect",
-                    "params" : {
-                        "size" : {"x" : 20, "y" : 20},
-                        "color" : "#0FF",
-                        "anim" : "js/demo/assets/animation_sample_2.json"
-                    }
-                },
-        
-                {
-                    "class" : "AnimatedRect",
-                    "params" : {
-                        "size" : {"x" : 20, "y" : 20},
-                        "color" : "#0FF",
-                        "anim" : "js/demo/assets/animation_sample_3.json"
-                    }
-                }
-            ]
+                "zIndex" : 10,
+                "radius" : 10
+            }
+        },
+        {
+            "name" : "StretchRect",
+            "params" : 
+            {
+                "position" : {"x" : 320, "y" : 240}
+            }
         }
     ]
 }

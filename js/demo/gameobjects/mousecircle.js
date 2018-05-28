@@ -1,11 +1,10 @@
-//Test rect object
+//Mouse Cursor Circle
 var MouseCircle = function(args) {
 
     GameObject.call(this, args);
     
     this.radius = args.radius;
     this.color = "#FB0"
-    this.zIndex = 10;
     this.collider = new ColliderCircle(
         this,
         this.gTrans,
@@ -48,5 +47,5 @@ MouseCircle.prototype.draw = function(ctx) {
 //Game object collision
 MouseCircle.prototype.collide = function(other, pos) {
     
-    this.color = "#FFF";
+    this.color = "#F00";
 }

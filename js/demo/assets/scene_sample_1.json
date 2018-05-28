@@ -1,21 +1,39 @@
 {
     "gameObjects" : [
         {
-            "class" : "SceneSwitcher",
+            "name" : "SceneSwitcher",
             "params" : 
             {
-                "prevScene" : "js/demo/assets/scene_sample_0.json"
+                "prevScene" : "js/demo/assets/scene_sample_0.json",
+                "nextScene" : "js/demo/assets/scene_sample_2.json"
             }
         },
         {
-            "class" : "MouseCircle",
+            "name" : "MouseCircle",
             "params" : 
             {
+                "zIndex" : 10,
                 "radius" : 25
             }
         },
         {
-            "class" : "BasicCircle",
+            "name" : "BasicCircle",
+            "params" : 
+            {
+                "position" : {"x" : -60, "y" : 800},
+                "radius" : 500
+            }
+        },
+        {
+            "name" : "BasicCircle",
+            "params" : 
+            {
+                "position" : {"x" : 180, "y" : 200},
+                "radius" : 50
+            }
+        },
+        {
+            "name" : "BasicCircle",
             "params" : 
             {
                 "position" : {"x" : 260, "y" : 280},
@@ -23,7 +41,7 @@
             }
         },
         {
-            "class" : "BasicCircle",
+            "name" : "BasicCircle",
             "params" : 
             {
                 "position" : {"x" : 360, "y" : 220},
@@ -31,7 +49,7 @@
             }
         },
         {
-            "class" : "BasicCircle",
+            "name" : "BasicCircle",
             "params" : 
             {
                 "position" : {"x" : 420, "y" : 320},

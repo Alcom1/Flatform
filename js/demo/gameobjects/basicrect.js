@@ -1,9 +1,9 @@
 //Test rect object
-var BasicRect = function(parent, pos, size) {
+var BasicRect = function(args) {
 
-    GameObject.call(this, parent);
+    GameObject.call(this, args);
     
-    this.lTrans.pos = pos;
+    this.lTrans.pos = args.pos;
     this.size = size;
     this.color = "#0BF"
     this.collider = new ColliderRect(

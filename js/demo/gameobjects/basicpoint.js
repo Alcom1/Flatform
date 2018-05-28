@@ -1,9 +1,9 @@
-//Test rect object
-var BasicPoint = function(parent, pos) {
+//Test point object
+var BasicPoint = function(args) {
 
-    GameObject.call(this, parent);
+    GameObject.call(this, args);
     
-    this.lTrans.pos = pos;
+    this.lTrans.pos = new Vect(args.position.x, args.position.y);
     this.color = "#FF0";
     this.collider = new ColliderPoint(
         this,

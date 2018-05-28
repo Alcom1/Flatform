@@ -27,7 +27,7 @@ ff.main = (function() {
 		ctx = canvas.getContext('2d');
 		
 		// canvas actions
-		canvas.onmousemove = doMousemove.bind(this);
+		canvas.onmousemove = ff.managerMouse.update.bind(this);
 
 		// load the first scene
 		loadScene(sceneName);
@@ -118,14 +118,8 @@ ff.main = (function() {
 			o.params = o.params || {};
 			o.params.parent = scene;	//Set scene to be passed in params as parent.
 			o.params.children = o.children || [];
-			callObject(o.class, o.params);
+			callObject(o.name, o.params);
 		});
-	};
-		
-	//Mouse move tracking
-	function doMousemove(e) {
-		
-		ff.managerMouse.update(e);
 	};
 		
 	//Draw filled text

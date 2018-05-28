@@ -3,7 +3,12 @@ var GameObject = function(args) {
 
 	this.lTrans = new Transform(1, 0, 0, 1, 0, 0);
 	this.gTrans = new Transform(1, 0, 0, 1, 0, 0);
-	this.zIndex = 0;
+	if(args.zIndex != null) {
+		this.zIndex = args.zIndex;
+	}
+	else {
+		this.zIndex = 0;
+	}
     this.parent = args.parent;
 	this.parent.pushGO(this);
 	this.children = [];
@@ -14,7 +19,7 @@ var GameObject = function(args) {
 		o.params = o.params || {};
 		o.params.parent = self;
 		o.params.children = o.children || [];
-		callObject(o.class, o.params);
+		callObject(o.name, o.params);
 	});
 }
 

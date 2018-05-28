@@ -1,9 +1,9 @@
-//Test rect object
-var StretchRect = function(parent, pos) {
+//Test rect object that rotates and resizes to match the mouse position.
+var StretchRect = function(args) {
 
-    GameObject.call(this, parent);
+    GameObject.call(this, args);
     
-    this.lTrans.pos = pos;
+    this.lTrans.pos = new Vect(args.position.x, args.position.y);
     this.size = new Vect(0.8, 1);
     this.color = "#AAA"
     this.collider = new ColliderPoint(

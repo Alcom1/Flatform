@@ -1,4 +1,4 @@
-//Test rect object
+//Test stationary circle
 var BasicCircle = function(args) {
 
     GameObject.call(this, args);

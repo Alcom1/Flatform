@@ -1,5 +1,3 @@
-//Global functions and enumerations
-
 // returns mouse position in local coordinate system of element
 function getMouse(e) {
 
@@ -8,24 +6,6 @@ function getMouse(e) {
 		e.pageY - e.target.offsetTop,
 		0);
 	return mouse;
-}
-
-//constrained between min and max (inclusive)
-function clamp(val, min, max) {
-
-	return Math.max(min, Math.min(max, val));
-}
-
-//Modified mod for negative numbers.
-Number.prototype.mod = function(n) {
-
-	return ((this % n) + n) % n;
-}
-
-//Maps x within range a-b to range c-d
-function map(x, a, b, c, d) {
-
-    return (x - a) / (b - a) * (d - c) + c;
 }
 
 //XMLHttpRequest methods
@@ -38,105 +18,8 @@ function loadJson(fileName) {
     return JSON.parse(xhr.responseText);
 }
 
+//Instantiate object by name and args.
 function callObject(name, args) {
 
     var what = new window[name](args);
 }
-
-//Set canvas transform based on a transformation
-CanvasRenderingContext2D.prototype.setTransformG = function(trans) {
-
-    this.setTransform(
-        trans.mat2.a,
-        trans.mat2.c,
-        trans.mat2.b,
-        trans.mat2.d,
-        trans.pos.x,
-        trans.pos.y);    
-}
-
-//Canvas point
-CanvasRenderingContext2D.prototype.point = function (x, y) {
-
-    this.save();
-    this.fillStyle = this.strokeStyle;
-    this.beginPath();
-    this.arc(
-        x,
-        y,
-        this.lineWidth / 2,
-        0,
-        2 * Math.PI, true);
-    this.fill();
-    this.restore();
-}
-
-//Collisions (Point, Rect, Circle, Tri)
-function collisionPointRect(point, rect) {
-
-    var inverseMat2 = rect.transform.mat2.getInverse();
-    var pointRel = inverseMat2.getMultVect(point.transform.pos.getSub(rect.transform.pos));
-    
-    if(
-        Math.abs(pointRel.x) < rect.size.x &&
-        Math.abs(pointRel.y) < rect.size.y) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function collisionPointCircle(point, circle) {
-
-    return circle.radius * circle.radius >
-        point.transform.pos.getSub(circle.transform.pos).getMagnitudeSquared() 
-}
-
-function collisionPointTri(point, tri) {
-
-    return false;   //TODO: implement collision logic.
-}
-
-function collisionRectRect(rectA, rectB) {
-
-    return false;   //TODO: implement collision logic.
-}
-
-function collisionRectCircle(rect, circle) {
-
-    return false;   //TODO: implement collision logic.
-}
-
-function collisionRectTri(rect, tri) {
-
-    return false;   //TODO: implement collision logic.
-}
-
-function collisionCircleCircle(circleA, circleB) {
-
-    return (circleA.radius + circleB.radius) * (circleA.radius + circleB.radius) >
-        circleA.transform.pos.getSub(circleB.transform.pos).getMagnitudeSquared();
-}
-
-function collisionCircleTri(circle, tri) {
-
-    return false;   //TODO: implement collision logic.
-}
-
-function collisionTriTri(triA, triB) {
-    
-    return false;   //TODO: implement collision logic.
-}
-
-//Enums
-TYPE_ANIM = Object.freeze({
-    TRANSLATE: 0,
-    SCALE: 1,
-    ROTATE: 2});
-
-TYPE_COLL = Object.freeze({
-    POINT: 0,
-    RECT: 1,
-    CIRCLE: 2,
-    TRI: 3});

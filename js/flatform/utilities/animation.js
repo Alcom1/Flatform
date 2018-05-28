@@ -90,3 +90,9 @@ Animation.prototype.transformPartial = function(
         }
     }    
 }
+
+//Enums
+TYPE_ANIM = Object.freeze({
+    TRANSLATE: 0,
+    SCALE: 1,
+    ROTATE: 2});

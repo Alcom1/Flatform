@@ -1,4 +1,4 @@
-//Test animated rect object
+//Animated rectangle
 var AnimatedRect = function(args) {
     
     GameObject.call(this, args);
