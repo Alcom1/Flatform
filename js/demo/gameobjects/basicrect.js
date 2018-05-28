@@ -3,7 +3,7 @@ var BasicRect = function(args) {
 
     GameObject.call(this, args);
     
-    this.lTrans.pos = args.pos;
+    this.lTrans.pos = new Vect(args.position.x, args.position.y);
     this.size = size;
     this.color = "#0BF"
     this.collider = new ColliderRect(
