@@ -48,12 +48,12 @@ NewGameObject.prototype = Object.create(GameObject.prototype);
 ### Creating a moving square
 
 ```javascript
-var MovingRedSquare = function(args) {
+var MovingSquare = function(args) {
 
     GameObject.call(this, args);
 
     this.lTrans.pos = new Vect(args.position.x, args.position.y);
-    this.size = new Vect(args.size);
+    this.size = args.size;
     this.speed = args.speed;
 }
 
@@ -81,7 +81,6 @@ MovingSquare.prototype.draw = function(ctx) {
 
     GameObject.prototype.draw.call(this, ctx);
 }
-
 ```
 
 ### Creating a scene with multiple white squares
@@ -93,9 +92,9 @@ MovingSquare.prototype.draw = function(ctx) {
             "name" : "MovingSquare",
             "params" : 
             {
-                "position" : { "x" : 10, "y" : 20 },
-                "size" : 30,
-                "speed" : 40
+                "position" : { "x" : 40, "y" : 30 },
+                "size" : 20,
+                "speed" : 50
             }
         },
         {
@@ -105,6 +104,15 @@ MovingSquare.prototype.draw = function(ctx) {
                 "position" : { "x" : 100, "y" : 120 },
                 "size" : 60,
                 "speed" : 25
+            }
+        },
+        {
+            "name" : "MovingSquare",
+            "params" : 
+            {
+                "position" : { "x" : 200, "y" : 320 },
+                "size" : 120,
+                "speed" : 10
             }
         }
     ]
