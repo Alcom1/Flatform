@@ -59,15 +59,6 @@ ff.main = (function() {
 		
 		//Draw
 		draw(ctx);
-
-		// draw dt in bottom right corner
-		// fillText(
-		// 	"Use up & down arrow keys to cycle scenes.",
-		// 	2,
-		// 	HEIGHT - 4,
-		// 	"16pt Consolas",
-		// 	"white",
-		// 	false);
 		
 		//Draw debug info
 		if (debug)

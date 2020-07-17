@@ -1,13 +1,3 @@
-// returns mouse position in local coordinate system of element
-function getMouse(e) {
-
-	var mouse = new Vect(
-		e.pageX - e.target.offsetLeft,
-		e.pageY - e.target.offsetTop,
-		0);
-	return mouse;
-}
-
 //XMLHttpRequest methods
 function loadJson(fileName) {
 

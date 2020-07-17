@@ -5,7 +5,7 @@ var ff = ff || {};
 ff.managerMouse = (function() {
 
     var mousePos; //Mouse position.
-	
+
 	//Init
 	function init()
 	{
@@ -16,6 +16,16 @@ ff.managerMouse = (function() {
     function update(e)
     {
         mousePos = getMouse(e);
+    }
+    
+    // returns mouse position in local coordinate system of element
+    function getMouse(e) {
+
+        var mouse = new Vect(
+            e.pageX - e.target.offsetLeft,
+            e.pageY - e.target.offsetTop,
+            0);
+        return mouse;
     }
     
     //Returns the mouse position
